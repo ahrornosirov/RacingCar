@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/RacingPrototype.unity
+    guid: 3668a557feb7946b5b554721cff566ae
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 2848840d9e5ae4b1a812f5f996b1295b, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4f68ac3b67867412f8558b906512aed1, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 5402291a0ff5547a683f07a568aafd7c, type: 2}

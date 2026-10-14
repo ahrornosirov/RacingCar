@@ -1,0 +1,896 @@
+{
+  "materials": [
+    {
+      "name": "Mechanical",
+      "normalTexture": {
+        "index": 0
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.05112205445766449,
+          0.05112205445766449,
+          0.05112205445766449,
+          1
+        ],
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    },
+    {
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_transmission": {
+          "transmissionFactor": 1
+        }
+      },
+      "name": "Glass",
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0,
+        "roughnessFactor": 0
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        1,
+        1,
+        1
+      ],
+      "emissiveTexture": {
+        "index": 3
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.002932318253442645,
+          0.002932318253442645,
+          0.002932318253442645,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8
+      }
+    },
+    {
+      "name": "Interior 1",
+      "normalTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "scale": [
+              200,
+              400
+            ]
+          }
+        },
+        "index": 4
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.003697239328175783,
+          0.003697239328175783,
+          0.003697239328175783,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.4
+      }
+    },
+    {
+      "name": "Floormat",
+      "normalTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "scale": [
+              2,
+              3
+            ]
+          }
+        },
+        "index": 5
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0012017396511510017,
+          0.0012017396511510017,
+          0.0012017396511510017,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "emissiveFactor": [
+        1,
+        1,
+        1
+      ],
+      "emissiveTexture": {
+        "index": 3
+      },
+      "name": "Hardware",
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.2715774476528168,
+          0.2715774476528168,
+          0.2715774476528168,
+          1
+        ],
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Interior 3 Carmine",
+      "normalTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "scale": [
+              200,
+              400
+            ]
+          }
+        },
+        "index": 4
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.21576441824436188,
+          0.005,
+          0,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.4
+      }
+    },
+    {
+      "name": "Interior 2",
+      "normalTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "scale": [
+              100,
+              100
+            ]
+          }
+        },
+        "index": 6
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.003697239328175783,
+          0.003697239328175783,
+          0.003697239328175783,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.4
+      }
+    },
+    {
+      "emissiveFactor": [
+        1,
+        0.259027361869812,
+        0
+      ],
+      "emissiveTexture": {
+        "index": 7
+      },
+      "extensions": {
+        "KHR_materials_emissive_strength": {
+          "emissiveStrength": 3
+        }
+      },
+      "name": "Dashboard",
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0012017396511510017,
+          0.0012017396511510017,
+          0.0012017396511510017,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "name": "License",
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 3
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8
+      }
+    },
+    {
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_clearcoat": {
+          "clearcoatFactor": 0.25
+        }
+      },
+      "name": "Paint 2 Carmine",
+      "normalTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "scale": [
+              30,
+              30
+            ],
+            "rotation": 0.585398
+          }
+        },
+        "index": 8,
+        "scale": 0.30000001192092896
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.03775528281927109,
+          0.03775528281927109,
+          0.03775528281927109,
+          1
+        ],
+        "roughnessFactor": 0.3
+      }
+    },
+    {
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_clearcoat": {
+          "clearcoatFactor": 1
+        }
+      },
+      "name": "Paint 1 Carmine",
+      "normalTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "scale": [
+              30,
+              30
+            ]
+          }
+        },
+        "index": 8,
+        "scale": 0.30000001192092896
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.666,
+          0,
+          0,
+          1
+        ],
+        "roughnessFactor": 0.25
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.8,
+        0.35,
+        0
+      ],
+      "extensions": {
+        "KHR_materials_emissive_strength": {
+          "emissiveStrength": 2
+        }
+      },
+      "name": "Signallight",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0012017396511510017,
+          0.0012017396511510017,
+          0.0012017396511510017,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.7,
+        0,
+        0
+      ],
+      "extensions": {
+        "KHR_materials_emissive_strength": {
+          "emissiveStrength": 2
+        }
+      },
+      "name": "Brakelight",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0012017396511510017,
+          0.0012017396511510017,
+          0.0012017396511510017,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.54179847240448,
+        0.737204909324646,
+        1
+      ],
+      "extensions": {
+        "KHR_materials_emissive_strength": {
+          "emissiveStrength": 10
+        }
+      },
+      "name": "Headlight",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0012017396511510017,
+          0.0012017396511510017,
+          0.0012017396511510017,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "emissiveFactor": [
+        1,
+        1,
+        1
+      ],
+      "emissiveTexture": {
+        "index": 3
+      },
+      "name": "Mirror",
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "roughnessFactor": 0
+      }
+    },
+    {
+      "emissiveFactor": [
+        1,
+        1,
+        1
+      ],
+      "emissiveTexture": {
+        "index": 3
+      },
+      "name": "Brake",
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.6523702144622803,
+          0,
+          0,
+          1
+        ],
+        "roughnessFactor": 0.2
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Disc",
+      "normalTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "scale": [
+              20,
+              10
+            ]
+          }
+        },
+        "index": 10
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "extensions": {
+            "KHR_texture_transform": {
+              "scale": [
+                20,
+                10
+              ]
+            }
+          },
+          "index": 9
+        },
+        "roughnessFactor": 0.73
+      }
+    },
+    {
+      "name": "Tireside",
+      "normalTexture": {
+        "index": 12
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 11
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.4
+      }
+    },
+    {
+      "name": "Tiretread",
+      "normalTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "offset": [
+              0,
+              1.5
+            ],
+            "scale": [
+              1,
+              4
+            ]
+          }
+        },
+        "index": 13
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.009021492674946783,
+          0.009021492674946783,
+          0.009021492674946783,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6
+      }
+    },
+    {
+      "emissiveFactor": [
+        1,
+        1,
+        1
+      ],
+      "emissiveTexture": {
+        "index": 3
+      },
+      "name": "Rim2",
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "roughnessFactor": 0.049
+      }
+    },
+    {
+      "emissiveFactor": [
+        1,
+        1,
+        1
+      ],
+      "emissiveTexture": {
+        "index": 3
+      },
+      "name": "Rim1",
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.000992374261841178,
+          0.000992374261841178,
+          0.000992374261841178,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.4
+      }
+    },
+    {
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_clearcoat": {
+          "clearcoatFactor": 0.1
+        },
+        "KHR_materials_iridescence": {
+          "iridescenceFactor": 0.8,
+          "iridescenceIor": 1.2,
+          "iridescenceThicknessMinimum": 820,
+          "iridescenceThicknessMaximum": 920,
+          "iridescenceThicknessTexture": {
+            "extensions": {
+              "KHR_texture_transform": {
+                "scale": [
+                  2,
+                  2
+                ]
+              }
+            },
+            "index": 14
+          }
+        }
+      },
+      "name": "Paint 1 Pearl",
+      "normalTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "scale": [
+              30,
+              30
+            ]
+          }
+        },
+        "index": 8,
+        "scale": 0.05
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5,
+          0.5,
+          0.5,
+          1
+        ],
+        "roughnessFactor": 0.35
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Paint 1 Graphite",
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.15,
+          0.15,
+          0.15,
+          1
+        ],
+        "roughnessFactor": 0.3
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Paint 2 Pearl",
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.4,
+          0.4,
+          0.4,
+          1
+        ],
+        "roughnessFactor": 0.25
+      }
+    },
+    {
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_iridescence": {
+          "iridescenceFactor": 0.5,
+          "iridescenceIor": 1,
+          "iridescenceThicknessMaximum": 1000
+        }
+      },
+      "name": "Paint 2 Graphite",
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.1,
+          0.1,
+          0.1,
+          1
+        ],
+        "roughnessFactor": 0.2
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Interior 3 Pearl",
+      "normalTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "scale": [
+              200,
+              400
+            ]
+          }
+        },
+        "index": 4
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.98,
+          0.98,
+          0.98,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.4
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Interior 3 Graphite",
+      "normalTexture": {
+        "extensions": {
+          "KHR_texture_transform": {
+            "scale": [
+              200,
+              400
+            ]
+          }
+        },
+        "index": 4
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02,
+          0.05,
+          0.1,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.4
+      }
+    },
+    {
+      "name": "Panel Sides",
+      "normalTexture": {
+        "index": 4,
+        "scale": 0
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "texCoord": 1,
+        "strength": 0.85
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.003697239328175783,
+          0.003697239328175783,
+          0.003697239328175783,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.4
+      }
+    }
+  ],
+  "textures": [
+    {
+      "source": 0,
+      "sampler": 0
+    },
+    {
+      "source": 1,
+      "sampler": 0
+    },
+    {
+      "source": 2,
+      "sampler": 0
+    },
+    {
+      "source": 3,
+      "sampler": 0
+    },
+    {
+      "source": 4,
+      "sampler": 0
+    },
+    {
+      "source": 4,
+      "sampler": 0
+    },
+    {
+      "source": 5,
+      "sampler": 0
+    },
+    {
+      "source": 6,
+      "sampler": 0
+    },
+    {
+      "source": 7,
+      "sampler": 1
+    },
+    {
+      "source": 8,
+      "sampler": 0
+    },
+    {
+      "source": 9,
+      "sampler": 0
+    },
+    {
+      "source": 10,
+      "sampler": 0
+    },
+    {
+      "source": 11,
+      "sampler": 0
+    },
+    {
+      "source": 12,
+      "sampler": 0
+    },
+    {
+      "source": 13,
+      "sampler": 0
+    }
+  ],
+  "images": [
+    {
+      "bufferView": 518,
+      "mimeType": "image/png",
+      "file": "Image0.png"
+    },
+    {
+      "bufferView": 519,
+      "mimeType": "image/png",
+      "file": "Image1.png"
+    },
+    {
+      "bufferView": 520,
+      "mimeType": "image/png",
+      "file": "Image2.png"
+    },
+    {
+      "bufferView": 521,
+      "mimeType": "image/png",
+      "file": "Image3.png"
+    },
+    {
+      "bufferView": 522,
+      "mimeType": "image/png",
+      "file": "Image4.png"
+    },
+    {
+      "bufferView": 523,
+      "mimeType": "image/png",
+      "file": "Image5.png"
+    },
+    {
+      "bufferView": 524,
+      "mimeType": "image/png",
+      "file": "Image6.png"
+    },
+    {
+      "bufferView": 525,
+      "mimeType": "image/png",
+      "file": "Image7.png"
+    },
+    {
+      "bufferView": 526,
+      "mimeType": "image/png",
+      "file": "Image8.png"
+    },
+    {
+      "bufferView": 527,
+      "mimeType": "image/png",
+      "file": "Image9.png"
+    },
+    {
+      "bufferView": 528,
+      "mimeType": "image/png",
+      "file": "Image10.png"
+    },
+    {
+      "bufferView": 529,
+      "mimeType": "image/png",
+      "file": "Image11.png"
+    },
+    {
+      "bufferView": 530,
+      "mimeType": "image/png",
+      "file": "Image12.png"
+    },
+    {
+      "bufferView": 531,
+      "mimeType": "image/png",
+      "file": "Image13.png"
+    }
+  ]
+}

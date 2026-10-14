@@ -1,0 +1,874 @@
+{
+  "materials": [
+    {
+      "name": "Mechanical",
+      "color": [
+        0.05112205445766449,
+        0.05112205445766449,
+        0.05112205445766449,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 1,
+      "baseMap": "",
+      "normalMap": "Image0.png",
+      "normalStrength": 1,
+      "metalRoughMap": "Image1.png",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Glass",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": true,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Material",
+      "color": [
+        0.002932318253442645,
+        0.002932318253442645,
+        0.002932318253442645,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.8,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "emissionMap": "Image3.png",
+      "doubleSided": true,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Interior 1",
+      "color": [
+        0.003697239328175783,
+        0.003697239328175783,
+        0.003697239328175783,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.4,
+      "baseMap": "",
+      "normalMap": "Image4.png",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": false,
+      "tiling": [
+        200,
+        400
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Floormat",
+      "color": [
+        0.0012017396511510017,
+        0.0012017396511510017,
+        0.0012017396511510017,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.5,
+      "baseMap": "",
+      "normalMap": "Image4.png",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": false,
+      "tiling": [
+        2,
+        3
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Hardware",
+      "color": [
+        0.2715774476528168,
+        0.2715774476528168,
+        0.2715774476528168,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.5,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "emissionMap": "Image3.png",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Interior 3 Carmine",
+      "color": [
+        0.21576441824436188,
+        0.005,
+        0,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.4,
+      "baseMap": "",
+      "normalMap": "Image4.png",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": true,
+      "tiling": [
+        200,
+        400
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Interior 2",
+      "color": [
+        0.003697239328175783,
+        0.003697239328175783,
+        0.003697239328175783,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.4,
+      "baseMap": "",
+      "normalMap": "Image5.png",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": false,
+      "tiling": [
+        100,
+        100
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "color": [
+        0.0012017396511510017,
+        0.0012017396511510017,
+        0.0012017396511510017,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.5,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        1,
+        0.259027361869812,
+        0
+      ],
+      "emissionMap": "Image6.png",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "License",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.8,
+      "baseMap": "Image3.png",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Paint 2 Carmine",
+      "color": [
+        0.03775528281927109,
+        0.03775528281927109,
+        0.03775528281927109,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.3,
+      "baseMap": "",
+      "normalMap": "Image7.png",
+      "normalStrength": 0.30000001192092896,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": true,
+      "tiling": [
+        30,
+        30
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Paint 1 Carmine",
+      "color": [
+        0.666,
+        0,
+        0,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.25,
+      "baseMap": "",
+      "normalMap": "Image7.png",
+      "normalStrength": 0.30000001192092896,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": true,
+      "tiling": [
+        30,
+        30
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Signallight",
+      "color": [
+        0.0012017396511510017,
+        0.0012017396511510017,
+        0.0012017396511510017,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.5,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0.8,
+        0.35,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Brakelight",
+      "color": [
+        0.0012017396511510017,
+        0.0012017396511510017,
+        0.0012017396511510017,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.5,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0.7,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Headlight",
+      "color": [
+        0.0012017396511510017,
+        0.0012017396511510017,
+        0.0012017396511510017,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.5,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0.54179847240448,
+        0.737204909324646,
+        1
+      ],
+      "emissionMap": "",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Mirror",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "emissionMap": "Image3.png",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Brake",
+      "color": [
+        0.6523702144622803,
+        0,
+        0,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.2,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "emissionMap": "Image3.png",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Disc",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.73,
+      "baseMap": "Image8.png",
+      "normalMap": "Image9.png",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": true,
+      "tiling": [
+        20,
+        10
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Tireside",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.4,
+      "baseMap": "Image10.png",
+      "normalMap": "Image11.png",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Tiretread",
+      "color": [
+        0.009021492674946783,
+        0.009021492674946783,
+        0.009021492674946783,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.6,
+      "baseMap": "",
+      "normalMap": "Image12.png",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        4
+      ],
+      "offset": [
+        0,
+        1.5
+      ]
+    },
+    {
+      "name": "Rim2",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.049,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "emissionMap": "Image3.png",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Rim1",
+      "color": [
+        0.000992374261841178,
+        0.000992374261841178,
+        0.000992374261841178,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.4,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        1,
+        1,
+        1
+      ],
+      "emissionMap": "Image3.png",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Paint 1 Pearl",
+      "color": [
+        0.5,
+        0.5,
+        0.5,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.35,
+      "baseMap": "",
+      "normalMap": "Image7.png",
+      "normalStrength": 0.05,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": true,
+      "tiling": [
+        30,
+        30
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Paint 1 Graphite",
+      "color": [
+        0.15,
+        0.15,
+        0.15,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.3,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": true,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Paint 2 Pearl",
+      "color": [
+        0.4,
+        0.4,
+        0.4,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.25,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": true,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Paint 2 Graphite",
+      "color": [
+        0.1,
+        0.1,
+        0.1,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.2,
+      "baseMap": "",
+      "normalMap": "",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": true,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Interior 3 Pearl",
+      "color": [
+        0.98,
+        0.98,
+        0.98,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.4,
+      "baseMap": "",
+      "normalMap": "Image4.png",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": true,
+      "tiling": [
+        200,
+        400
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Interior 3 Graphite",
+      "color": [
+        0.02,
+        0.05,
+        0.1,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.4,
+      "baseMap": "",
+      "normalMap": "Image4.png",
+      "normalStrength": 1,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": true,
+      "tiling": [
+        200,
+        400
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Panel Sides",
+      "color": [
+        0.003697239328175783,
+        0.003697239328175783,
+        0.003697239328175783,
+        1
+      ],
+      "metallic": 0,
+      "roughness": 0.4,
+      "baseMap": "",
+      "normalMap": "Image4.png",
+      "normalStrength": 0,
+      "metalRoughMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "emissionMap": "",
+      "doubleSided": false,
+      "tiling": [
+        1,
+        1
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CarConcept",
+  "downloadUrl": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CarConcept/glTF-Binary/CarConcept.glb",
+  "gitBlobSha": "c0f38c989a78cc4ba63253b5338705e0afb0142f",
+  "sha256": "c272098089d78c5cd9fd9f24ff50ee8acf8d932c55f2d55fc10adb6c8998966b",
+  "retrieved": "2026-10-14",
+  "creator": "Eric Chadwick",
+  "copyrightOwner": "Darmstadt Graphics Group GmbH",
+  "license": "CC-BY-4.0",
+  "adaptation": "FBX conversion, URP materials, mobile texture imports, wheel/steering integration, source-brand plates/badge removed in gameplay variant, live instruments, combined body meshes"
+}
