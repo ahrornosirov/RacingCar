@@ -12,3 +12,4 @@
   - Creator/license credit also appears on the cockpit dashboard in the game.
 - The previous roadster body/cockpit, circuit, roadside props and driving effects are custom procedural assets created for this project. The downloaded concept car now replaces the roadster's visible body, cockpit and wheels. No paid car model or road package was purchased.
 - TextMesh Pro resources came from Unity's bundled essential resources and retain their included license notices.
+  - The bundled mobile overlay shader adds an instancing variant for the menu's Quest rendering. Menu materials copy its font atlas; the gameplay font asset remains unchanged.

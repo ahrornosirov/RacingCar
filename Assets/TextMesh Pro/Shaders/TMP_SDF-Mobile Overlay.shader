@@ -82,6 +82,7 @@ SubShader {
 	Pass {
 		CGPROGRAM
 		#pragma vertex VertShader
+		#pragma multi_compile_instancing
 		#pragma fragment PixShader
 		#pragma shader_feature __ OUTLINE_ON
 		#pragma shader_feature __ UNDERLAY_ON UNDERLAY_INNER

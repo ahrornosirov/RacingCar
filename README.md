@@ -1,8 +1,8 @@
 # RacingCar
 
-## Current checkpoint
+## Current version
 
-The downloaded-car prototype is implemented and its last Quest APK passed the documented checks. Menu and expanded third-person support are **in progress**: camera/input/session changes and `RaceMenu.cs` are saved, but the menu canvas, buttons, EventSystem and scene references have not yet been created or connected. Menu integration, visual checks, controller navigation checks and a new APK build remain to be completed. The existing scene still launches the driving prototype directly. The last verified APK predates these unfinished menu changes.
+Main, pause and controls menus are connected to the playable scene. Choose **First Person** or **Third Person**, then select **Start Race**. Both views support Quest head tracking; desktop third-person view follows the car, supports mouse orbit and moves forward when an obstacle blocks the camera. Desktop menu/input and camera checks passed. Real Quest controller interaction, comfort and sustained frame rate still require headset testing.
 
 Unity project for a Quest 3/3S racing game. The playable prototype uses first-person cockpit view, a downloaded detailed concept-car model, a textured circuit with varied corners and gentle elevation, ordered checkpoints, lap timing, reset, pause and engine audio. The seated XR camera supports independent head tracking.
 
@@ -14,6 +14,8 @@ Use Unity Hub to add this repository folder and open it with **Unity 6000.6.0f1 
 
 Open **Assets/Scenes/RacingPrototype.unity** and press Play. Click inside the Game view to give it keyboard focus.
 
+Use the mouse or arrow keys + Enter in the menu. On Quest, use the left stick up/down to select, A to confirm and B to go back. **P / Escape** or Quest **X** opens the pause menu during a race. Resume, change camera view, restart the current lap, view controls, or return to the main menu. Returning to the main menu freezes the race; Start Race begins a fresh race while preserving the best lap recorded during the session.
+
 | Action | Desktop | Quest controllers |
 | --- | --- | --- |
 | Accelerate | W / Up arrow | Right trigger |
@@ -22,7 +24,7 @@ Open **Assets/Scenes/RacingPrototype.unity** and press Play. Click inside the Ga
 | Reverse | Q | Left thumbstick down |
 | Reset current lap and car | R | B |
 | Pause/resume | P / Escape | X |
-| Camera / recenter | C switches chase/cockpit | A recenters seated view |
+| Camera view | C switches first/third person | Y |
 | Look around | Hold right mouse and move | Move your head |
 | Seat height | Page Up / Page Down | Adjust seated position before recentering |
 | Recenter desktop look | Home | A |
@@ -52,6 +54,8 @@ The editor menu **RacingCar > Configure Quest Project** applies the initial Andr
 The prototype uses Quest controller input and a seated XR rig. The immediate milestone is first-person visual polish and device validation. Passthrough and a miniature MR track remain planned. There are no visible controller hands or a grab-to-steer wheel yet.
 
 **RacingCar > Run Prototype Physics Checks** tests suspension, forward motion, braking, steering, reset, checkpoint order/direction, lap completion and pause/resume. Save your scene before running it. Results are written to `Logs/prototype-checks.txt`.
+
+The editor batch entry point `RacingMenuPlayChecks.Run` tests real UI mouse selection and keyboard submit, starting/driving, both camera views, camera obstruction, pause input blocking, controls/back, lap restart, return to Home and fresh-race state. Results go to `Logs/menu-play-checks.txt`. Quest menu navigation is mapped through the native controller API and awaits hardware validation. Menu text/panels render above the cockpit so the car cannot hide buttons; the Quest menu stays in place while the player looks around.
 
 Use **RacingCar > Build Quest APK** with the Android build target active to generate `Builds/Quest/RacingCar.apk`. This is a development build for testing. The generated APK and build caches are ignored by Git.
 

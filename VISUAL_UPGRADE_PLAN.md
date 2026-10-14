@@ -4,6 +4,10 @@ Research date: 14 October 2026. Target: standalone Meta Quest 3/3S, Unity 6000.6
 
 ## Implementation progress
 
+Main, pause and controls menus now provide first-person/third-person selection, Start/Resume, lap restart and return to Home. Desktop chase view supports mouse orbit and camera obstruction handling. The menu blocks driving and freezes time. Quest controller navigation and an independently tracked chase view/HUD are implemented but await headset validation. UI mouse/keyboard, camera and race/menu transition checks passed, and menu/controls/pause/chase previews were visually inspected.
+
+The updated menu/camera ARM64 Quest APK built successfully with zero errors and seven warnings, approximately 71 MiB. Its archive integrity and VR manifest were checked. Existing acceleration, steering, pause/reset and driving-effect regression checks also passed.
+
 The custom roadster has now been replaced with the downloaded **Car Concept** model by Eric Chadwick / Darmstadt Graphics Group GmbH, from Khronos's glTF Sample Assets library (CC BY 4.0). Its interior, body and wheels are integrated with the existing physics and first-person rig. Original source/license files are included. Unity materials, live instruments, animated steering, wheel poses and dashboard credit are adapted for this project.
 
 The imported model passed the physics/race-rule, road/checkpoint and runtime driving/effect checks. Its Quest APK built successfully with zero errors and seven warnings; archive integrity passed. The cockpit and exterior were rendered from the actual Unity scene and inspected. Hardware performance/comfort validation remains pending.

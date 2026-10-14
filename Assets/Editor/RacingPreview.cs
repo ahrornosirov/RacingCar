@@ -58,14 +58,30 @@ public static class RacingPreview
         Debug.Log("RACINGCAR_PREVIEW_OK");
     }
 
-    static void Export(Camera camera, string path)
+    public static void Export(Camera camera, string path)
     {
+        Directory.CreateDirectory(Path.GetDirectoryName(path));
         var target = new RenderTexture(1280, 720, 24, RenderTextureFormat.ARGB32);
         target.Create();
         var previous = RenderTexture.active;
+        var previousTarget = camera.targetTexture;
+        float previousAspect = camera.aspect;
+        var overlays = new System.Collections.Generic.List<(Canvas canvas, Camera camera, float distance)>();
         var image = new Texture2D(1280, 720, TextureFormat.RGBA32, false);
         try
         {
+            camera.targetTexture = target;
+            camera.aspect = 1280f / 720f;
+            // Overlay UI does not participate in camera requests. Capture it in front of scene geometry.
+            foreach (var canvas in UnityEngine.Object.FindObjectsByType<Canvas>())
+            {
+                if (canvas.renderMode != RenderMode.ScreenSpaceOverlay) continue;
+                overlays.Add((canvas, canvas.worldCamera, canvas.planeDistance));
+                canvas.renderMode = RenderMode.ScreenSpaceCamera;
+                canvas.worldCamera = camera;
+                canvas.planeDistance = Mathf.Max(0.15f, camera.nearClipPlane + 0.05f);
+            }
+            Canvas.ForceUpdateCanvases();
             // Warm the pipeline before exporting; the first request initializes material and lighting state.
             for (int i = 0; i < 2; i++)
                 RenderPipeline.SubmitRenderRequest(camera, new UniversalRenderPipeline.SingleCameraRequest { destination = target });
@@ -77,6 +93,15 @@ public static class RacingPreview
         finally
         {
             RenderTexture.active = previous;
+            camera.targetTexture = previousTarget;
+            camera.aspect = previousAspect;
+            foreach (var overlay in overlays)
+            {
+                overlay.canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+                overlay.canvas.worldCamera = overlay.camera;
+                overlay.canvas.planeDistance = overlay.distance;
+            }
+            Canvas.ForceUpdateCanvases();
             target.Release();
             UnityEngine.Object.DestroyImmediate(target);
             UnityEngine.Object.DestroyImmediate(image);

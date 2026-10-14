@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 using XRUsages = UnityEngine.XR.CommonUsages;
 
-[DefaultExecutionOrder(-200)]
+[DefaultExecutionOrder(100)]
 public sealed class RaceMenu : MonoBehaviour
 {
     public enum Page { Home, Pause, Controls }
@@ -15,7 +15,7 @@ public sealed class RaceMenu : MonoBehaviour
     public Canvas canvas;
     public RectTransform card;
     public GameObject desktopBrand;
-    public TMP_Text title, subtitle, cameraLabel, help, footer;
+    public TMP_Text title, subtitle, cameraLabel, help, footer, summary;
     public Button play, firstPerson, thirdPerson, restart, controls, mainMenu, quit, back;
     public Canvas chaseHud;
     public TMP_Text chaseHudText;
@@ -27,6 +27,7 @@ public sealed class RaceMenu : MonoBehaviour
     int inputFrame = -1;
     bool previousConfirm, previousBack, previousPause, previousCamera, wasXR;
     float nextNavigation;
+    bool placePanel;
 
     void Awake() => race.SetPaused(true);
 
@@ -46,8 +47,8 @@ public sealed class RaceMenu : MonoBehaviour
     public void ShowHome()
     {
         HasStarted = false;
-        Open(Page.Home);
         view.SetShowcase(true);
+        Open(Page.Home);
     }
 
     public void StartRace()
@@ -81,6 +82,7 @@ public sealed class RaceMenu : MonoBehaviour
     {
         inputFrame = Time.frameCount;
         view.SetView(cockpit);
+        placePanel = IsOpen;
         Refresh();
     }
 
@@ -106,6 +108,7 @@ public sealed class RaceMenu : MonoBehaviour
         canvas.gameObject.SetActive(true);
         Refresh();
         ConfigureCanvas();
+        placePanel = true;
         SelectDefault();
         Cursor.visible = true;
     }
@@ -133,7 +136,10 @@ public sealed class RaceMenu : MonoBehaviour
         Set(controls, !info, "CONTROLS", paused ? 422f : 348f);
         Set(mainMenu, paused, "MAIN MENU", 496f);
         Set(quit, !info && !paused, "QUIT GAME", 422f);
-        Set(back, info, "BACK", 496f);
+        Set(back, info, "BACK", 580f);
+        summary.gameObject.SetActive(!info);
+        summary.rectTransform.anchoredPosition = new Vector2(0f, paused ? -602f : -540f);
+        summary.text = paused ? $"LAP {race.CompletedLaps + 1}   /   {RaceDashboard.FormatTime(race.LapTime)}\nBEST LAP   {RaceDashboard.FormatTime(race.BestLap)}" : "CIRCUIT 01\n8 CHECKPOINTS  /  TIMED LAPS";
         help.gameObject.SetActive(info);
         help.text = "DESKTOP\nW / Up: accelerate   S / Down: brake\nA / D: steer   Q: reverse   Space: handbrake\nC: camera   P / Esc: pause   R: reset lap\nRight mouse: look / orbit   Home: recenter\nPage Up / Down: cockpit seat height\n\nQUEST\nRight trigger: accelerate   Left trigger: brake\nLeft stick: steer   Pull back: reverse\nY: camera   X: pause   B: reset lap\nA: recenter while racing\n\nMENU\nMouse or arrows + Enter on desktop\nLeft stick up/down + A on Quest; B goes back";
         footer.text = info ? "Car Concept: Eric Chadwick / Darmstadt Graphics Group GmbH\nCC BY 4.0 - creativecommons.org/licenses/by/4.0" : "Mouse / arrows + Enter   |   Quest: left stick + A\nC / Y changes the camera. P / X pauses the race.";
@@ -155,7 +161,7 @@ public sealed class RaceMenu : MonoBehaviour
     {
         bool xr = XRSettings.isDeviceActive;
         wasXR = xr;
-        desktopBrand.SetActive(!xr);
+        desktopBrand.SetActive(!xr && CurrentPage == Page.Home);
         var rectangle = (RectTransform)canvas.transform;
         var scaler = canvas.GetComponent<CanvasScaler>();
         if (xr)
@@ -171,7 +177,8 @@ public sealed class RaceMenu : MonoBehaviour
         }
         else
         {
-            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            rectangle.localScale = Vector3.one;
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             canvas.worldCamera = view.raceCamera;
             canvas.planeDistance = 1f;
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
@@ -181,6 +188,12 @@ public sealed class RaceMenu : MonoBehaviour
             card.anchorMin = card.anchorMax = new Vector2(0.76f, 0.5f);
         }
         card.anchoredPosition = Vector2.zero;
+    }
+
+    void LateUpdate()
+    {
+        // Camera LateUpdate runs first: opening Home or changing view moves the rig.
+        if (placePanel && IsOpen) { ConfigureCanvas(); placePanel = false; }
     }
 
     void Update()

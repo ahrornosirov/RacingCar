@@ -4,7 +4,8 @@ Prepared 13 October 2026. Target confirmed: Meta Quest 3/3S.
 
 ## Progress — 14 October 2026
 
-- GitHub checkpoint includes unfinished menu/third-person work: runtime camera, menu, input and session code is saved, but menu scene/UI wiring, visual/controller verification and the next APK build remain pending. Resume from this checkpoint; the last verified APK was the downloaded-car build.
+- Menu/third-person milestone completed: Home/Pause/Controls UI, persisted mouse/keyboard actions, Quest joystick/button mapping, switchable cockpit/chase views, chase orbit/obstacle avoidance and Quest chase telemetry are connected. Desktop input, race/menu state and camera checks passed; Quest hardware validation remains pending.
+- Menu/camera Quest development APK built successfully with zero errors and seven warnings (approximately 71 MiB). Archive integrity and ARM64/VR manifest checks passed; this replaces the downloaded-car APK.
 
 - Downloaded Khronos Car Concept (Eric Chadwick / DGG, CC BY 4.0) and integrated its curved body, interior and wheels. The procedural roadster is replaced in the playable scene; first-person camera, wheel physics, instruments and steering animation are adapted to the imported model. Attribution and original source/license files are included.
 

@@ -59,7 +59,9 @@ public static class RacingVisualPlayChecks
                 effects = race.car.GetComponent<CarDrivingEffects>();
                 presentation = race.car.GetComponent<CarPresentation>();
                 restingSteering = presentation.steeringWheel.localRotation;
-                if (race.Paused) race.TogglePause();
+                var menu = UnityEngine.Object.FindAnyObjectByType<RaceMenu>();
+                if (menu != null) menu.StartRace();
+                else if (race.Paused) race.TogglePause();
                 race.Restart(); race.Throttle = 1f;
                 Advance();
             }

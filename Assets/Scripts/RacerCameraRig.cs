@@ -69,7 +69,7 @@ public sealed class RacerCameraRig : MonoBehaviour
         else if (showcase)
         {
             transform.position = car.transform.position + yaw * new Vector3(-3.3f, 1.25f, 3.5f);
-            transform.rotation = Quaternion.LookRotation(car.transform.position + yaw * Vector3.right * 1.05f - transform.position);
+            transform.rotation = Quaternion.LookRotation(car.transform.position - yaw * Vector3.right * 1.05f - transform.position);
             raceCamera.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         }
         else if (cockpit)
