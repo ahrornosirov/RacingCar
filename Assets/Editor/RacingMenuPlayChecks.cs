@@ -13,6 +13,7 @@ public static class RacingMenuPlayChecks
 {
     const string SessionKey = "RacingCar.MenuPlayChecks";
     static RaceMenu menu;
+    const string RecordKey = "RacingCar.Check.Menu";
     static Keyboard keyboard;
     static Mouse mouse;
     static int stage;
@@ -53,6 +54,7 @@ public static class RacingMenuPlayChecks
             {
                 menu = UnityEngine.Object.FindAnyObjectByType<RaceMenu>();
                 if (menu == null || !menu.IsOpen || EventSystem.current == null || elapsed < 0.4) return;
+                menu.race.recordKey = RecordKey; menu.race.LoadRecords(); menu.race.countdownSeconds = 0;
                 Require(!menu.HasStarted && menu.CurrentPage == RaceMenu.Page.Home && menu.race.Paused && Time.timeScale == 0, "Home menu freezes race before Start");
                 Require(menu.view.cockpit && menu.view.showcase, "First-person default and car showcase");
                 RacingPreview.Export(menu.view.raceCamera, "Previews/main-menu.png");
@@ -154,7 +156,7 @@ public static class RacingMenuPlayChecks
             }
             else if (stage == 12 && elapsed > 0.2)
             {
-                Require(!menu.IsOpen && !menu.race.Paused && menu.race.CompletedLaps == 1 && menu.race.LapTime < 0.4f && menu.race.BestLap == bestLap, "Restart Lap resets current lap and keeps completed laps/best");
+                Require(!menu.IsOpen && !menu.race.Paused && menu.race.CompletedLaps == 0 && menu.race.LapTime < 0.4f && menu.race.BestLap == bestLap, "Restart Race clears laps and keeps saved best");
                 menu.ShowPause(); menu.mainMenu.onClick.Invoke(); Advance();
             }
             else if (stage == 13 && elapsed > 0.2)
@@ -186,6 +188,7 @@ public static class RacingMenuPlayChecks
     }
     static void Finish(bool success, Exception error)
     {
+        PlayerPrefs.DeleteKey(RecordKey + ".BestLap"); PlayerPrefs.DeleteKey(RecordKey + ".BestRace.3"); PlayerPrefs.Save();
         SessionState.SetBool(SessionKey, false); EditorApplication.update -= Tick;
         if (keyboard != null) InputSystem.RemoveDevice(keyboard);
         if (mouse != null) InputSystem.RemoveDevice(mouse);

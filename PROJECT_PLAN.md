@@ -2,7 +2,11 @@
 
 Prepared 13 October 2026. Target confirmed: Meta Quest 3/3S.
 
-## Progress — 14 October 2026
+## Progress — 15 October 2026
+
+- Complete race mode implemented: 3–2–1–GO countdown, three-lap finish, results with splits/total time, Race Again, and device-local saved lap/race records. Current-lap reset keeps total race time; Pause > Restart Race begins a fresh countdown. Race records are separated by race distance. Play mode and persistence across editor restarts passed. Existing menu/camera, physics and driving-effect checks also passed. Updated ARM64 Quest APK built successfully with zero errors and seven warnings (71.3 MiB); archive integrity passed. Headset testing remains pending.
+
+## Earlier progress — 14 October 2026
 
 - Menu/third-person milestone completed: Home/Pause/Controls UI, persisted mouse/keyboard actions, Quest joystick/button mapping, switchable cockpit/chase views, chase orbit/obstacle avoidance and Quest chase telemetry are connected. Desktop input, race/menu state and camera checks passed; Quest hardware validation remains pending.
 - Menu/camera Quest development APK built successfully with zero errors and seven warnings (approximately 71 MiB). Archive integrity and ARM64/VR manifest checks passed; this replaces the downloaded-car APK.

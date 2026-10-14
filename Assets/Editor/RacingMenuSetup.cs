@@ -73,6 +73,7 @@ public static class RacingMenuSetup
         rig.raceCamera.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene()); EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
         AssetDatabase.SaveAssets();
+        RacingRaceModeSetup.Apply();
         Validate();
         RenderHome();
         Debug.Log("RACINGCAR_MENU_SETUP_OK");
@@ -191,6 +192,12 @@ public static class RacingMenuSetup
         foreach (var text in menu.canvas.GetComponentsInChildren<TMP_Text>(true)) text.fontSharedMaterial = overlay;
         menu.chaseHud.GetComponent<Image>().material = ui;
         menu.chaseHudText.fontSharedMaterial = overlay;
+        var countdown = UnityEngine.Object.FindAnyObjectByType<RaceCountdownUI>();
+        if (countdown != null)
+        {
+            foreach (var image in countdown.canvas.GetComponentsInChildren<Image>(true)) image.material = ui;
+            foreach (var text in countdown.canvas.GetComponentsInChildren<TMP_Text>(true)) text.fontSharedMaterial = overlay;
+        }
         menu.canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         menu.card.GetComponent<Image>().color = new Color(0.035f, 0.055f, 0.075f, 1f);
         var brand = menu.desktopBrand.GetComponentsInChildren<TMP_Text>();

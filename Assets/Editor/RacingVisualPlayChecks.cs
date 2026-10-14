@@ -9,6 +9,7 @@ using UnityEngine;
 [InitializeOnLoad]
 public static class RacingVisualPlayChecks
 {
+    const string RecordKey = "RacingCar.Check.Visual";
     const string Key = "RacingCar.VisualPlayChecks";
     static RaceSession race;
     static CarDrivingEffects effects;
@@ -60,6 +61,7 @@ public static class RacingVisualPlayChecks
                 presentation = race.car.GetComponent<CarPresentation>();
                 restingSteering = presentation.steeringWheel.localRotation;
                 var menu = UnityEngine.Object.FindAnyObjectByType<RaceMenu>();
+                race.recordKey = RecordKey; race.LoadRecords(); race.countdownSeconds = 0;
                 if (menu != null) menu.StartRace();
                 else if (race.Paused) race.TogglePause();
                 race.Restart(); race.Throttle = 1f;
@@ -136,6 +138,7 @@ public static class RacingVisualPlayChecks
     }
     static void Finish(bool success, Exception error)
     {
+        PlayerPrefs.DeleteKey(RecordKey + ".BestLap"); PlayerPrefs.DeleteKey(RecordKey + ".BestRace.3"); PlayerPrefs.Save();
         SessionState.SetBool(Key, false);
         EditorApplication.update -= Tick;
         Directory.CreateDirectory("Logs");

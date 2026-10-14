@@ -4,7 +4,7 @@ Research date: 14 October 2026. Target: standalone Meta Quest 3/3S, Unity 6000.6
 
 ## Implementation progress
 
-Main, pause and controls menus now provide first-person/third-person selection, Start/Resume, lap restart and return to Home. Desktop chase view supports mouse orbit and camera obstruction handling. The menu blocks driving and freezes time. Quest controller navigation and an independently tracked chase view/HUD are implemented but await headset validation. UI mouse/keyboard, camera and race/menu transition checks passed, and menu/controls/pause/chase previews were visually inspected.
+Main, pause and controls menus now provide first-person/third-person selection, Start/Resume, whole-race restart and return to Home. Desktop chase view supports mouse orbit and camera obstruction handling. The menu blocks driving and freezes time. Quest controller navigation and an independently tracked chase view/HUD are implemented but await headset validation. UI mouse/keyboard, camera and race/menu transition checks passed, and menu/controls/pause/chase previews were visually inspected.
 
 The updated menu/camera ARM64 Quest APK built successfully with zero errors and seven warnings, approximately 71 MiB. Its archive integrity and VR manifest were checked. Existing acceleration, steering, pause/reset and driving-effect regression checks also passed.
 

@@ -32,11 +32,16 @@ public sealed class RaceDashboard : MonoBehaviour
         engine.pitch = 0.65f + race.car.EngineRpm / 4500f;
         engine.volume = race.Paused ? 0f : 0.18f + Mathf.Abs(race.Throttle) * 0.12f;
         string gear = race.car.Gear < 0 ? "R" : race.car.Gear.ToString();
-        cockpitText.text = $"{race.car.SpeedKph:0} <size=55%>KM/H</size>  <color=#FFBF60>{gear}</color>\n<size=55%>{race.car.EngineRpm:0} RPM   LAP {race.CompletedLaps + 1}\n{FormatTime(race.LapTime)}  BEST {FormatTime(race.BestLap)}\n"
-            + (race.Paused ? (XRSettings.isDeviceActive ? "PAUSED · X to resume" : "PAUSED · P to resume") : $"GATE {race.NextCheckpoint + 1}/{race.checkpointCount}") + "</size>";
+        cockpitText.text = $"{race.car.SpeedKph:0} <size=55%>KM/H</size>  <color=#FFBF60>{gear}</color>\n<size=55%>{race.car.EngineRpm:0} RPM   LAP {race.LapNumber}/{race.LapTarget}\n{FormatTime(race.LapTime)}  BEST {FormatTime(race.BestLap)}\n"
+            + (race.CurrentPhase == RaceSession.Phase.Countdown ? "GET READY" : race.CurrentPhase == RaceSession.Phase.Finished ? "RACE COMPLETE" : race.Paused ? (XRSettings.isDeviceActive ? "PAUSED · X to resume" : "PAUSED · P to resume") : $"GATE {race.NextCheckpoint + 1}/{race.checkpointCount}") + "</size>";
     }
 
-    public static string FormatTime(float value) => value <= 0f ? "--:--.--" : $"{(int)value / 60:00}:{value % 60:00.00}";
+    public static string FormatTime(float value)
+    {
+        if (value <= 0f) return "--:--.--";
+        int hundredths = Mathf.RoundToInt(value * 100f);
+        return $"{hundredths / 6000:00}:{hundredths / 100 % 60:00}.{hundredths % 100:00}";
+    }
 
     void OnGUI()
     {
@@ -45,7 +50,7 @@ public sealed class RaceDashboard : MonoBehaviour
         bodyStyle ??= new GUIStyle(GUI.skin.label) { fontSize = 17, normal = { textColor = new Color(0.8f, 0.9f, 1f) } };
         GUI.Box(new Rect(20, 20, 400, 68), GUIContent.none);
         GUI.Label(new Rect(34, 28, 380, 30), $"{race.car.SpeedKph:0} KM/H  /  " + (view == null || view.cockpit ? "FIRST PERSON" : "THIRD PERSON"), bodyStyle);
-        GUI.Label(new Rect(34, 57, 380, 26), race.Paused ? "PAUSED — P to resume" : $"LAP {race.CompletedLaps + 1}   {FormatTime(race.LapTime)}   GATE {race.NextCheckpoint + 1}/{race.checkpointCount}", bodyStyle);
+        GUI.Label(new Rect(34, 57, 380, 26), race.Paused ? "PAUSED — P to resume" : $"LAP {race.LapNumber}/{race.LapTarget}   {FormatTime(race.LapTime)}   GATE {race.NextCheckpoint + 1}/{race.checkpointCount}", bodyStyle);
         GUI.Box(new Rect(20, Screen.height - 62, Mathf.Min(Screen.width - 40, 1100), 42), GUIContent.none);
         GUI.Label(new Rect(32, Screen.height - 55, Screen.width - 60, 32), "W/S throttle/brake · A/D steer · C camera · R reset · P/Esc menu · Right mouse look/orbit · Home recenter", bodyStyle);
     }

@@ -9,7 +9,7 @@ using XRUsages = UnityEngine.XR.CommonUsages;
 [DefaultExecutionOrder(100)]
 public sealed class RaceMenu : MonoBehaviour
 {
-    public enum Page { Home, Pause, Controls }
+    public enum Page { Home, Pause, Controls, Results }
     public RaceSession race;
     public RacerCameraRig view;
     public Canvas canvas;
@@ -19,10 +19,11 @@ public sealed class RaceMenu : MonoBehaviour
     public Button play, firstPerson, thirdPerson, restart, controls, mainMenu, quit, back;
     public Canvas chaseHud;
     public TMP_Text chaseHudText;
+    public TMP_Text resultDetails;
     public Page CurrentPage { get; private set; }
     public bool HasStarted { get; private set; }
     public bool IsOpen => canvas.gameObject.activeSelf;
-    public bool BlocksDriving => IsOpen || inputFrame == Time.frameCount;
+    public bool BlocksDriving => IsOpen || !race.CanDrive || inputFrame == Time.frameCount;
     Page controlsReturn;
     int inputFrame = -1;
     bool previousConfirm, previousBack, previousPause, previousCamera, wasXR;
@@ -33,10 +34,11 @@ public sealed class RaceMenu : MonoBehaviour
 
     void Start()
     {
+        race.Finished += ShowResults;
         play.onClick.AddListener(() => { if (CurrentPage == Page.Pause) Resume(); else StartRace(); });
         firstPerson.onClick.AddListener(() => SelectCamera(true));
         thirdPerson.onClick.AddListener(() => SelectCamera(false));
-        restart.onClick.AddListener(RestartLap);
+        restart.onClick.AddListener(StartRace);
         controls.onClick.AddListener(ShowControls);
         mainMenu.onClick.AddListener(ShowHome);
         quit.onClick.AddListener(Quit);
@@ -47,6 +49,7 @@ public sealed class RaceMenu : MonoBehaviour
     public void ShowHome()
     {
         HasStarted = false;
+        race.ReturnHome();
         view.SetShowcase(true);
         Open(Page.Home);
     }
@@ -60,22 +63,22 @@ public sealed class RaceMenu : MonoBehaviour
 
     public void ShowPause()
     {
-        if (!HasStarted) return;
+        if (!HasStarted || race.CurrentPhase == RaceSession.Phase.Finished) return;
         view.SetShowcase(false);
         Open(Page.Pause);
     }
 
     public void Resume()
     {
-        if (!HasStarted) return;
+        if (!HasStarted || race.CurrentPhase == RaceSession.Phase.Finished) return;
         race.SetPaused(false);
         Close();
     }
 
-    public void RestartLap()
+    public void ShowResults()
     {
-        race.Restart();
-        Resume();
+        view.SetShowcase(false);
+        Open(Page.Results);
     }
 
     public void SelectCamera(bool cockpit)
@@ -125,24 +128,38 @@ public sealed class RaceMenu : MonoBehaviour
     void Refresh()
     {
         bool info = CurrentPage == Page.Controls, paused = CurrentPage == Page.Pause;
+        bool results = CurrentPage == Page.Results;
+        resultDetails.gameObject.SetActive(results);
+        if (results)
+        {
+            var details = new System.Text.StringBuilder();
+            details.Append($"<color=#FFBF60><size=135%>{RaceDashboard.FormatTime(race.RaceTime)}</size></color>\nTOTAL RACE TIME\n\n");
+            for (int i = 0; i < race.LapTimes.Count; i++) details.Append($"LAP {i + 1}       {RaceDashboard.FormatTime(race.LapTimes[i])}\n");
+            details.Append($"\nBEST LAP       {RaceDashboard.FormatTime(race.BestLap)}\nBEST RACE     {RaceDashboard.FormatTime(race.BestRace)}");
+            if (race.Resets > 0) details.Append($"\n{race.Resets} LAP {(race.Resets == 1 ? "RESET" : "RESETS")} - INCLUDED IN TOTAL");
+            resultDetails.text = details.ToString();
+        }
         title.text = info ? "HOW TO DRIVE" : paused ? "PAUSED" : "READY TO RACE?";
+        if (results) title.text = "RACE COMPLETE";
         subtitle.text = info ? "Desktop and Quest controls" : paused ? "Take a breath. Your lap is waiting." : "Choose your view and take the starting line.";
+        if (results) subtitle.text = $"CIRCUIT 01  /  {race.LapTarget} LAPS FINISHED";
         cameraLabel.text = "CAMERA  /  " + (view.cockpit ? "FIRST PERSON" : "THIRD PERSON");
-        cameraLabel.gameObject.SetActive(!info);
-        Set(play, !info, paused ? "RESUME RACE" : "START RACE", 118f);
-        Set(firstPerson, !info, "FIRST PERSON" + (view.cockpit ? "   /   SELECTED" : ""), 200f);
-        Set(thirdPerson, !info, "THIRD PERSON" + (!view.cockpit ? "   /   SELECTED" : ""), 274f);
-        Set(restart, paused, "RESTART LAP", 348f);
-        Set(controls, !info, "CONTROLS", paused ? 422f : 348f);
-        Set(mainMenu, paused, "MAIN MENU", 496f);
-        Set(quit, !info && !paused, "QUIT GAME", 422f);
+        cameraLabel.gameObject.SetActive(!info && !results);
+        Set(play, !info, results ? "RACE AGAIN" : paused ? "RESUME RACE" : "START RACE", results ? 500f : 118f);
+        Set(firstPerson, !info && !results, "FIRST PERSON" + (view.cockpit ? "   /   SELECTED" : ""), 200f);
+        Set(thirdPerson, !info && !results, "THIRD PERSON" + (!view.cockpit ? "   /   SELECTED" : ""), 274f);
+        Set(restart, paused, "RESTART RACE", 348f);
+        Set(controls, !info && !results, "CONTROLS", paused ? 422f : 348f);
+        Set(mainMenu, paused || results, "MAIN MENU", results ? 580f : 496f);
+        Set(quit, !info && !paused && !results, "QUIT GAME", 422f);
         Set(back, info, "BACK", 580f);
-        summary.gameObject.SetActive(!info);
+        summary.gameObject.SetActive(!info && !results);
         summary.rectTransform.anchoredPosition = new Vector2(0f, paused ? -602f : -540f);
-        summary.text = paused ? $"LAP {race.CompletedLaps + 1}   /   {RaceDashboard.FormatTime(race.LapTime)}\nBEST LAP   {RaceDashboard.FormatTime(race.BestLap)}" : "CIRCUIT 01\n8 CHECKPOINTS  /  TIMED LAPS";
+        summary.text = paused ? $"LAP {race.LapNumber}/{race.LapTarget}   /   {RaceDashboard.FormatTime(race.LapTime)}\nRACE   {RaceDashboard.FormatTime(race.RaceTime)}" : $"CIRCUIT 01  /  {race.LapTarget} LAPS\nBEST LAP   {RaceDashboard.FormatTime(race.BestLap)}\nBEST RACE   {RaceDashboard.FormatTime(race.BestRace)}";
         help.gameObject.SetActive(info);
         help.text = "DESKTOP\nW / Up: accelerate   S / Down: brake\nA / D: steer   Q: reverse   Space: handbrake\nC: camera   P / Esc: pause   R: reset lap\nRight mouse: look / orbit   Home: recenter\nPage Up / Down: cockpit seat height\n\nQUEST\nRight trigger: accelerate   Left trigger: brake\nLeft stick: steer   Pull back: reverse\nY: camera   X: pause   B: reset lap\nA: recenter while racing\n\nMENU\nMouse or arrows + Enter on desktop\nLeft stick up/down + A on Quest; B goes back";
         footer.text = info ? "Car Concept: Eric Chadwick / Darmstadt Graphics Group GmbH\nCC BY 4.0 - creativecommons.org/licenses/by/4.0" : "Mouse / arrows + Enter   |   Quest: left stick + A\nC / Y changes the camera. P / X pauses the race.";
+        if (results) footer.text = race.NewRaceRecord ? "NEW RACE RECORD!  /  SAVED ON THIS DEVICE" : race.NewLapRecord ? "NEW LAP RECORD!  /  SAVED ON THIS DEVICE" : "PERSONAL BESTS SAVED ON THIS DEVICE";
     }
 
     static void Set(Button button, bool active, string label, float y)
@@ -185,7 +202,7 @@ public sealed class RaceMenu : MonoBehaviour
             scaler.referenceResolution = new Vector2(1920f, 1080f);
             scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
             scaler.matchWidthOrHeight = 0.5f;
-            card.anchorMin = card.anchorMax = new Vector2(0.76f, 0.5f);
+            card.anchorMin = card.anchorMax = new Vector2(CurrentPage == Page.Results ? 0.5f : 0.76f, 0.5f);
         }
         card.anchoredPosition = Vector2.zero;
     }
@@ -205,7 +222,7 @@ public sealed class RaceMenu : MonoBehaviour
             {
                 if (IsOpen) Back(); else ShowPause();
             }
-            if (IsOpen && keyboard.cKey.wasPressedThisFrame) SelectCamera(!view.cockpit);
+            if ((IsOpen || race.CurrentPhase == RaceSession.Phase.Countdown) && keyboard.cKey.wasPressedThisFrame) SelectCamera(!view.cockpit);
         }
         var left = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
         var right = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
@@ -235,7 +252,7 @@ public sealed class RaceMenu : MonoBehaviour
         if (IsOpen && XRSettings.isDeviceActive != wasXR) ConfigureCanvas();
         bool showHud = XRSettings.isDeviceActive && HasStarted && !IsOpen && !view.cockpit;
         chaseHud.gameObject.SetActive(showHud);
-        if (showHud) chaseHudText.text = $"{race.car.SpeedKph:0} KM/H    LAP {race.CompletedLaps + 1}\n{RaceDashboard.FormatTime(race.LapTime)}    GATE {race.NextCheckpoint + 1}/{race.checkpointCount}";
+        if (showHud) chaseHudText.text = $"{race.car.SpeedKph:0} KM/H    LAP {race.LapNumber}/{race.LapTarget}\n{RaceDashboard.FormatTime(race.LapTime)}    GATE {race.NextCheckpoint + 1}/{race.checkpointCount}";
     }
 
     void Navigate(int step)
@@ -257,4 +274,6 @@ public sealed class RaceMenu : MonoBehaviour
         Application.Quit();
 #endif
     }
+
+    void OnDestroy() { if (race != null) race.Finished -= ShowResults; }
 }

@@ -53,6 +53,7 @@ public static class RacingPrototypeChecks
             var race = new GameObject("Test Race").AddComponent<RaceSession>();
             race.car = car;
             race.startPosition = new Vector3(0f, 0.95f, 0f);
+            race.countdownSeconds = 0; race.recordKey = "RacingCar.Check.Physics"; race.BeginNewRace();
             car.Body.linearVelocity = Vector3.forward * 5f;
             race.PassCheckpoint(0, Vector3.forward);
             race.PassCheckpoint(3, Vector3.forward);

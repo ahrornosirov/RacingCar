@@ -2,6 +2,8 @@
 
 ## Current version
 
+Complete three-lap races: Start Race shows **3–2–1–GO**, then starts the lap and total race clocks. After lap three, the results screen shows each lap, total time, saved personal bests, and **Race Again / Main Menu**. Best lap and best race times are saved locally on each device.
+
 Main, pause and controls menus are connected to the playable scene. Choose **First Person** or **Third Person**, then select **Start Race**. Both views support Quest head tracking; desktop third-person view follows the car, supports mouse orbit and moves forward when an obstacle blocks the camera. Desktop menu/input and camera checks passed. Real Quest controller interaction, comfort and sustained frame rate still require headset testing.
 
 Unity project for a Quest 3/3S racing game. The playable prototype uses first-person cockpit view, a downloaded detailed concept-car model, a textured circuit with varied corners and gentle elevation, ordered checkpoints, lap timing, reset, pause and engine audio. The seated XR camera supports independent head tracking.
@@ -14,7 +16,7 @@ Use Unity Hub to add this repository folder and open it with **Unity 6000.6.0f1 
 
 Open **Assets/Scenes/RacingPrototype.unity** and press Play. Click inside the Game view to give it keyboard focus.
 
-Use the mouse or arrow keys + Enter in the menu. On Quest, use the left stick up/down to select, A to confirm and B to go back. **P / Escape** or Quest **X** opens the pause menu during a race. Resume, change camera view, restart the current lap, view controls, or return to the main menu. Returning to the main menu freezes the race; Start Race begins a fresh race while preserving the best lap recorded during the session.
+Use the mouse or arrow keys + Enter in the menu. On Quest, use the left stick up/down to select, A to confirm and B to go back. **P / Escape** or Quest **X** opens the pause menu during a race. Resume, change camera view, restart the whole race with a fresh countdown, view controls, or return to the main menu. Returning to the main menu freezes the race; Start Race begins a fresh three-lap race while preserving saved records. The countdown can be paused and resumed.
 
 | Action | Desktop | Quest controllers |
 | --- | --- | --- |
@@ -30,7 +32,7 @@ Use the mouse or arrow keys + Enter in the menu. On Quest, use the left stick up
 | Recenter desktop look | Home | A |
 | Handbrake | Space | — |
 
-Follow the track from the starting position. Crossing the finish line completes a lap only after all seven intermediate checkpoints have been crossed in order. The gate counter in the instrument panel shows progress. Reset preserves completed laps and the best time, and restarts the current lap. The game pauses when application focus is lost; resume with P or X. RPM and gear use a simple virtual automatic drivetrain for presentation; this remains arcade vehicle physics.
+Follow the track from the starting position. Crossing the finish line completes a lap only after all seven intermediate checkpoints have been crossed in order. The gate counter in the instrument panel shows progress. R / Quest B resets only the current lap and preserves completed laps. Total race time keeps running through lap resets; the results screen reports how many resets occurred. **Restart Race** in the pause menu clears all lap progress and begins a new countdown. Neither action deletes saved records. The game pauses when application focus is lost; resume with P or X. RPM and gear use a simple virtual automatic drivetrain for presentation; this remains arcade vehicle physics.
 
 Required editor modules: Android Build Support, Android SDK & NDK Tools, and OpenJDK. Unity Hub installs these for the selected editor version.
 
@@ -55,7 +57,9 @@ The prototype uses Quest controller input and a seated XR rig. The immediate mil
 
 **RacingCar > Run Prototype Physics Checks** tests suspension, forward motion, braking, steering, reset, checkpoint order/direction, lap completion and pause/resume. Save your scene before running it. Results are written to `Logs/prototype-checks.txt`.
 
-The editor batch entry point `RacingMenuPlayChecks.Run` tests real UI mouse selection and keyboard submit, starting/driving, both camera views, camera obstruction, pause input blocking, controls/back, lap restart, return to Home and fresh-race state. Results go to `Logs/menu-play-checks.txt`. Quest menu navigation is mapped through the native controller API and awaits hardware validation. Menu text/panels render above the cockpit so the car cannot hide buttons; the Quest menu stays in place while the player looks around.
+The editor batch entry point `RacingMenuPlayChecks.Run` tests real UI mouse selection and keyboard submit, starting/driving, both camera views, camera obstruction, pause input blocking, controls/back, whole-race restart, return to Home and fresh-race state. Results go to `Logs/menu-play-checks.txt`. Quest menu navigation is mapped through the native controller API and awaits hardware validation. Menu text/panels render above the cockpit so the car cannot hide buttons; the Quest menu stays in place while the player looks around.
+
+The batch entry point `RacingRaceModePlayChecks.Run` checks countdown input/timer blocking, countdown pause, GO, ordered three-lap completion, results, Race Again, reset accounting and record saving. `RacingRaceModePlayChecks.VerifySavedRecords` verifies saved records in a second editor process and cleans up its isolated test records. Results go to `Logs/race-mode-play-checks.txt`; tests do not overwrite player records.
 
 Use **RacingCar > Build Quest APK** with the Android build target active to generate `Builds/Quest/RacingCar.apk`. This is a development build for testing. The generated APK and build caches are ignored by Git.
 
