@@ -10,6 +10,10 @@ Unity project for a Quest 3/3S racing game. The playable prototype uses first-pe
 
 The visual upgrade adds an animated steering wheel, speed/gear/RPM instruments, brake lights, curbs, guardrails, pit buildings, trees and distant hills. Wheel contact and slip drive bounded skidmarks, tire smoke and grass dust; metal barrier contacts trigger sparks. The car is **Car Concept by Eric Chadwick / Darmstadt Graphics Group GmbH**, downloaded from the [Khronos asset library](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CarConcept) under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Its curved body, interior and wheels replace the procedural roadster. Materials and geometry were adapted for Unity; see `ASSET_CREDITS.md`. Scenery remains a procedural prototype. Mirrors have reflective surfaces but no rear-view cameras. Rain and visible hands are future work.
 
+## Project presentation
+
+[Download the project presentation](docs/presentation/RacingCar_Project_Presentation.pptx). The editable PowerPoint contains 13 slides with project screenshots, implementation details, testing status, asset credits, and speaker notes for a classroom presentation.
+
 ## Open the project
 
 Use Unity Hub to add this repository folder and open it with **Unity 6000.6.0f1 (Apple Silicon)**. Let Package Manager finish resolving the checked-in manifest and lockfile.
