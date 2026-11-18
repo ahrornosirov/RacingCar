@@ -28,3 +28,8 @@
 *.unitypackage
 sysinfo.txt
 /Backups/
+# Licensed Unity Asset Store source and derived terrain stay local; restore through My Assets.
+/Assets/Snow mountain tracks/
+/Assets/Snow mountain tracks.meta
+/Assets/Art/Mountain/
+/Assets/Art/Mountain.meta

@@ -3538,8 +3538,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509175597445755837}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.83740234, y: -0.22000009, z: 1.1992643}
+  m_LocalRotation: {x: -0.0021810269, y: -0, z: -5.4083907e-14, w: 0.9999976}
+  m_LocalPosition: {x: 0.8374033, y: -0.3211241, z: 1.1992646}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6720,6 +6720,7 @@ GameObject:
   - component: {fileID: 2549173645850743346}
   - component: {fileID: 2045587520778741245}
   - component: {fileID: 4387212566824271417}
+  - component: {fileID: 3495826189892329487}
   m_Layer: 0
   m_Name: PrototypeCar
   m_TagString: Untagged
@@ -6735,8 +6736,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2224646747339674985}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36, y: 0.95, z: 2}
+  m_LocalRotation: {x: -0.000042602416, y: -0.00000016062411, z: -0.0000008755321, w: 1}
+  m_LocalPosition: {x: 36, y: 0.7191744, z: 1.9999385}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6774,7 +6775,7 @@ Rigidbody:
   m_Mass: 900
   m_LinearDamping: 0.04
   m_AngularDamping: 0.8
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: -0.3, z: 0.1}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -6783,7 +6784,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -6823,6 +6824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a711af3001444f8788eef74d8a02051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArcadeCar
+  profile: {fileID: 0}
   wheels:
   - {fileID: 3258183096734537748}
   - {fileID: 6087525551793983314}
@@ -6976,6 +6978,19 @@ MonoBehaviour:
   - {fileID: 5825722658157156606}
   sparks: {fileID: 4857120680436358996}
   skidMaterial: {fileID: 2100000, guid: 5c8473b735a064bcb9b5a2461470be9b, type: 2}
+--- !u!114 &3495826189892329487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2224646747339674985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c06911db3c50c46d98098f1181d26e81, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleCockpit
+  display: {fileID: 5059590094856004991}
 --- !u!1 &2290333567388246766
 GameObject:
   m_ObjectHideFlags: 0
@@ -21095,8 +21110,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6441714144483667744}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.83654785, y: -0.22000009, z: 1.2007322}
+  m_LocalRotation: {x: -0.0021807386, y: 1.4210855e-14, z: 2.749103e-15, w: 0.9999976}
+  m_LocalPosition: {x: -0.8365469, y: -0.32112148, z: 1.2007324}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29751,8 +29766,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7808155156592752317}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.84256744, y: -0.21999985, z: -1.1999984}
+  m_LocalRotation: {x: -0.0021903836, y: -0, z: 3.1090581e-15, w: 0.9999976}
+  m_LocalPosition: {x: -0.84256727, y: -0.32116327, z: -1.1999984}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30510,8 +30525,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8165726896148647759}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.84171295, y: -0.21999985, z: -1.1999984}
+  m_LocalRotation: {x: -0.0021906462, y: -0, z: 3.1185991e-15, w: 0.9999976}
+  m_LocalPosition: {x: 0.84171313, y: -0.32116047, z: -1.1999983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

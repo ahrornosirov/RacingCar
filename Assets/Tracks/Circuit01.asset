@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c50af5823274f2cb19b9e01ab08ef8, type: 3}
+  m_Name: Circuit01
+  m_EditorClassIdentifier: Assembly-CSharp::TrackDefinition
+  id: circuit-01
+  displayName: Circuit 01
+  description: 'Original circuit
+
+    Asphalt, curbs and sweeping corners'
+  credit: 'RacingCar original circuit
+
+    Asphalt texture: ambientCG | CC0'
+  recordKey: RacingCar.Circuit01.v1
+  environmentPrefab: {fileID: 0}
+  startPosition: {x: 36, y: 0.95, z: 2}
+  startEuler: {x: -0, y: 0, z: 0}

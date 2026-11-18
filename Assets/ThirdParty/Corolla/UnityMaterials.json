@@ -1,0 +1,485 @@
+{
+  "materials": [
+    {
+      "name": "belts",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.7772727012634277,
+      "baseMap": "",
+      "normalMap": "car_fabric_grey_Normal.png"
+    },
+    {
+      "name": "car_plastic_grainy_gray",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6454545259475708,
+      "baseMap": "car_plastic_grainy_grey_Albedo.png",
+      "normalMap": "car_plastic_grainy_grey_Normal.png"
+    },
+    {
+      "name": "carpet",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.7772727012634277,
+      "baseMap": "",
+      "normalMap": "car_fabric_grey_Normal.png"
+    },
+    {
+      "name": "carpet.002",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.7772727012634277,
+      "baseMap": "",
+      "normalMap": "car_fabric_grey_Normal.png"
+    },
+    {
+      "name": "dark_plastic_grainy",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5954545736312866,
+      "baseMap": "dark_plastic_Albedo.png",
+      "normalMap": "dark_plastic_Normal.png"
+    },
+    {
+      "name": "fabric_high",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.7336769700050354,
+      "baseMap": "car_fabric_grey_Albedo.png",
+      "normalMap": "car_fabric_grey_Normal.png"
+    },
+    {
+      "name": "invisible_dark",
+      "color": [
+        0.8000000715255737,
+        0.6848767995834351,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.06363636255264282,
+      "roughness": 0.9818181991577148,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "klosz",
+      "color": [
+        0.6037890315055847,
+        0.6037890315055847,
+        0.6037890315055847,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.10137457400560379,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "leather",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "baseMap": "leather_dark_Albedo.png",
+      "normalMap": "leather_dark_Normal.png"
+    },
+    {
+      "name": "M_dashboard",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "baseMap": "corollaE180_dashboard_material_Albedo.png",
+      "normalMap": "corollaE180_dashboard_material_Normal.png"
+    },
+    {
+      "name": "M_dashboard.001",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "baseMap": "corolla_dashboard.png",
+      "normalMap": ""
+    },
+    {
+      "name": "M_Steering_wheel",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "baseMap": "CorollaE180_steering_wheel_Albedo.png",
+      "normalMap": "CorollaE180_steering_wheel_Normal.png"
+    },
+    {
+      "name": "main_paint",
+      "color": [
+        0.9698904156684875,
+        0.9698904156684875,
+        0.9698904156684875,
+        1.0
+      ],
+      "metallic": 0.8971103429794312,
+      "roughness": 0.0,
+      "baseMap": "",
+      "normalMap": "Untitled_Normal.png"
+    },
+    {
+      "name": "main_paint.001",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0.24090908467769623,
+      "roughness": 0.5,
+      "baseMap": "",
+      "normalMap": "Untitled_Normal.png"
+    },
+    {
+      "name": "Material.002",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.003",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.0,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.004",
+      "color": [
+        0.1626262068748474,
+        0.1626262068748474,
+        0.1626262068748474,
+        1.0
+      ],
+      "metallic": 0.4305555820465088,
+      "roughness": 0.0,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.005",
+      "color": [
+        1.0,
+        0.007182058412581682,
+        0.00891780573874712,
+        1.0
+      ],
+      "metallic": 0.18015526235103607,
+      "roughness": 0.2646048069000244,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.008",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.3897637724876404,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.009",
+      "color": [
+        0.1282288283109665,
+        0.0,
+        0.0003419801068957895,
+        1.0
+      ],
+      "metallic": 0.1649484485387802,
+      "roughness": 0.21134021878242493,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.010",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.011",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.7409090995788574,
+      "baseMap": "",
+      "normalMap": "plastic_0022_normal_2k.png"
+    },
+    {
+      "name": "Material.013",
+      "color": [
+        0.06070462614297867,
+        0.06070462614297867,
+        0.06070462614297867,
+        1.0
+      ],
+      "metallic": 0.4954545497894287,
+      "roughness": 0.5181818008422852,
+      "baseMap": "",
+      "normalMap": "Untitled_Normal.png"
+    },
+    {
+      "name": "Material.014",
+      "color": [
+        0.27382758259773254,
+        0.024500055238604546,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.7361111044883728,
+      "roughness": 0.062499985098838806,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.016",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.018",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.7545454502105713,
+      "baseMap": "plastic_0022_color_2k.png",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.019",
+      "color": [
+        0.8000000715255737,
+        0.0,
+        0.0014883867697790265,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.020",
+      "color": [
+        0.16999661922454834,
+        0.8000000715255737,
+        0.09727766364812851,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.2147766351699829,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.021",
+      "color": [
+        0.16818402707576752,
+        0.23696114122867584,
+        0.39308470487594604,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.0,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Material.026",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.08075600862503052,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "miror",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 1.0,
+      "roughness": 0.0,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "plastic1",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.27727270126342773,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "screen",
+      "color": [
+        0.006367251742631197,
+        0.006367251742631197,
+        0.006367251742631197,
+        1.0
+      ],
+      "metallic": 0.14432990550994873,
+      "roughness": 0.0,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "seat_fabric",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5,
+      "baseMap": "seat_fabric_1_Albedo.png",
+      "normalMap": "seat_fabric_1_Normal.png"
+    },
+    {
+      "name": "smal_screen",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.26363635063171387,
+      "baseMap": "small_screen1.png",
+      "normalMap": ""
+    },
+    {
+      "name": "speaker",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6160731315612793,
+      "baseMap": "dark_plastic_Albedo.png",
+      "normalMap": "speaker_output_Normal.png"
+    },
+    {
+      "name": "tyre_side",
+      "color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6818181276321411,
+      "baseMap": "tyre_rubber_Albedo.png",
+      "normalMap": "tyre_rubber_Normal.png"
+    }
+  ]
+}

@@ -1,0 +1,355 @@
+{
+  "materials": [
+    {
+      "name": "BadgeA",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Base",
+      "color": [
+        0.0385875403881073,
+        0.03729298338294029,
+        0.03729298338294029,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "CalliperBadgeBMtl",
+      "color": [
+        0.45304593443870544,
+        0.2935923635959625,
+        0.03790402412414551,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "color1_o",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "color2_o",
+      "color": [
+        0.47230732440948486,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Coloured",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.0,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "ColouredMtl",
+      "color": [
+        0.3052835762500763,
+        0.3052835762500763,
+        0.3052835762500763,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "engine",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "engine_o",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "GlassDarkMtl",
+      "color": [
+        0.004220366477966309,
+        0.004220366477966309,
+        0.004220366477966309,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.30000001192092896,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "GlassMtl",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.0,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "GlassRedMtl",
+      "color": [
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Grille1A",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Grille2A",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Grille3A",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Grille4A",
+      "color": [
+        0.021807635203003883,
+        0.021807635203003883,
+        0.021807635203003883,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Grille5A",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "interior",
+      "color": [
+        0.1378841996192932,
+        0.1378841996192932,
+        0.1378841996192932,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "interior_o",
+      "color": [
+        0.1384316086769104,
+        0.1384316086769104,
+        0.1384316086769104,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "InteriorTillingColourZoneA",
+      "color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Lights",
+      "color": [
+        0.8014945387840271,
+        0.8014945387840271,
+        0.8014945387840271,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.0,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Paint",
+      "color": [
+        1.0,
+        0.43425068259239197,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.1050729900598526,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "paint1Mtl",
+      "color": [
+        0.0,
+        0.009615739807486534,
+        1.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "TexturedA",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Wheel1A",
+      "color": [
+        0.032829705625772476,
+        0.032829705625772476,
+        0.032829705625772476,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.2747493386268616,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "Wheel2A",
+      "color": [
+        0.0517662912607193,
+        0.0517662912607193,
+        0.0517662912607193,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    },
+    {
+      "name": "wire_141007058",
+      "color": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6000000238418579,
+      "baseMap": "",
+      "normalMap": ""
+    }
+  ]
+}

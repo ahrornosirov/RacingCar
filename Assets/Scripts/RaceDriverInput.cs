@@ -8,7 +8,16 @@ public sealed class RaceDriverInput : MonoBehaviour
     public RaceSession race;
     public RacerCameraRig view;
     public RaceMenu menu;
+    public QuestHandDriving hands;
     bool previousReset, previousPause, previousRecenter;
+
+    // Remap the live range after the dead zone so full stick still means full lock.
+    public static float FilterSteeringStick(float input)
+    {
+        const float deadZone = 0.12f;
+        float magnitude = Mathf.Clamp01((Mathf.Abs(input) - deadZone) / (1f - deadZone));
+        return Mathf.Sign(input) * Mathf.Pow(magnitude, 1.5f);
+    }
 
     void Update()
     {
@@ -44,7 +53,7 @@ public sealed class RaceDriverInput : MonoBehaviour
             right.TryGetFeatureValue(XRCommonUsages.secondaryButton, out bool resetButton);
             left.TryGetFeatureValue(XRCommonUsages.primaryButton, out bool pauseButton);
             right.TryGetFeatureValue(XRCommonUsages.primaryButton, out bool recenterButton);
-            steer = stick.x;
+            steer = race.car != null && race.car.AssistedSteering ? FilterSteeringStick(stick.x) : stick.x;
             throttle = stick.y < -0.6f ? -0.5f : acceleration;
             brake = braking;
             reset |= resetButton && !previousReset;
@@ -53,6 +62,10 @@ public sealed class RaceDriverInput : MonoBehaviour
             previousPause = pauseButton;
             if (recenterButton && !previousRecenter) view.Recenter();
             previousRecenter = recenterButton;
+        }
+        if (hands != null && hands.TryGetInput(out float handThrottle, out float handSteer, out float handBrake))
+        {
+            throttle = handThrottle; steer = handSteer; brake = handBrake; handbrake = false;
         }
         race.Throttle = throttle;
         race.Steering = steer;

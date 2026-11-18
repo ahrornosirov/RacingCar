@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03745e623cf4d4a1c9cc6faf9d77b5b2, type: 3}
+  m_Name: Concept
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleDefinition
+  id: concept
+  displayName: Concept Roadster
+  description: Lightweight rear-wheel drive
+  credit: 'Car Concept: Eric Chadwick / DGG | CC BY 4.0
+
+    Handling values are game tuning'
+  prefab: {fileID: 6703771332605113377, guid: e15c32c3052be45b8a92e6c068e63cfb, type: 3}
+  cockpitOffset: {x: 0.0017356873, y: 0.34190485, z: 0.34893668}
+  chaseOffset: {x: 0, y: 2.4, z: -6.2}
+  cockpitPitch: 8
+  mass: 900
+  topSpeedKph: 136.8
+  reverseSpeedKph: 25
+  motorTorque: 900
+  brakeTorque: 2800
+  steerAngle: 29
+  drivetrain: 0
+  centerOfMass: {x: 0, y: -0.3, z: 0.1}
+  grip: 1
+  suspensionSpring: 35000
+  suspensionDamper: 4500
+  steeringResponse: 4
+  frontBrakeBias: 0.5
+  downforce: 1.2
+  torqueBySpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

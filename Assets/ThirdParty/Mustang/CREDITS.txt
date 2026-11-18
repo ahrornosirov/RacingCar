@@ -1,0 +1,13 @@
+Model Information:
+* title:	Ford Mustang ROUSH 2019 - Stage 3
+* source:	https://sketchfab.com/3d-models/ford-mustang-roush-2019-stage-3-c3be292e50774be98bac9de749579d80
+* author:	monsefzz (https://sketchfab.com/monsefzz)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Ford Mustang ROUSH 2019 - Stage 3" (https://sketchfab.com/3d-models/ford-mustang-roush-2019-stage-3-c3be292e50774be98bac9de749579d80) by monsefzz (https://sketchfab.com/monsefzz) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+RacingCar adaptations: material groups batched, wheels separated, steering wheel extracted for animation, URP materials and rear brake-light emission, cockpit telemetry, camera positions, collision and custom rear-wheel-drive handling. Original source geometry preserved in Source/.
+Physics are game tuning rather than certified vehicle specifications.

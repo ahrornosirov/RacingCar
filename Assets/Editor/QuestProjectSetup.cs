@@ -11,6 +11,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.XR.Management;
+using UnityEngine.XR.Hands.OpenXR;
 using UnityEngine.XR.OpenXR;
 using UnityEngine.XR.OpenXR.Features;
 using UnityEngine.XR.OpenXR.Features.Interactions;
@@ -64,6 +65,8 @@ public static class QuestProjectSetup
         FeatureHelpers.RefreshFeatures(BuildTargetGroup.Android);
         var xr = OpenXRSettings.GetSettingsForBuildTargetGroup(BuildTargetGroup.Android);
         Enable<MetaQuestFeature>(xr);
+        Enable<HandTracking>(xr);
+        Enable<MetaHandTrackingAim>(xr);
         Enable<OculusTouchControllerProfile>(xr);
         Enable<MetaQuestTouchPlusControllerProfile>(xr);
         xr.renderMode = OpenXRSettings.RenderMode.SinglePassInstanced;

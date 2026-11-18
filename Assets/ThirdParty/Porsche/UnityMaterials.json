@@ -1,0 +1,781 @@
+{
+  "materials": [
+    {
+      "name": "reisin",
+      "color": [
+        0.013907977031391877,
+        0.013907977031391877,
+        0.013907977031391877,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6378296434527265,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "reisin_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "bl_pl_M_ext",
+      "color": [
+        0.017671885984173973,
+        0.017671885984173973,
+        0.017671885984173973,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.6804079419022682,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "bl_pl_M_ext_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "windows",
+      "color": [
+        0.0013081766679502137,
+        0.025101596702590673,
+        0.01704617379330157,
+        0.2546249574068514
+      ],
+      "metallic": 0.0,
+      "roughness": 0.0964769917371252,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "BLEND"
+    },
+    {
+      "name": "windows_edge",
+      "color": [
+        0.03004233207166414,
+        0.03004233207166414,
+        0.03004233207166414,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.9598104562110257,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "black_metal",
+      "color": [
+        0.017566060741709185,
+        0.017566060741709185,
+        0.017566060741709185,
+        1.0
+      ],
+      "metallic": 0.8263906794435539,
+      "roughness": 0.42493815120501816,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Mirror",
+      "color": [
+        0.39501649487423646,
+        0.39501649487423646,
+        0.39501649487423646,
+        1.0
+      ],
+      "metallic": 1,
+      "roughness": 0.15122051831510736,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "carbon_int",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.0,
+      "roughness": 1,
+      "baseMap": "carbon_int_baseColor.png",
+      "normalMap": "",
+      "metalRoughMap": "carbon_int_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "body_main",
+      "color": [
+        0.2340925154752341,
+        0.22668440645872773,
+        0.16087362479495443,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.4310207652692384,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "body_main_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "headlights_pattern",
+      "color": [
+        0.13417889647800366,
+        0.13417889647800366,
+        0.13417889647800366,
+        0.23029450114997047
+      ],
+      "metallic": 0.0,
+      "roughness": 0.0964769917371252,
+      "baseMap": "",
+      "normalMap": "headlights_pattern_normal.png",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "BLEND"
+    },
+    {
+      "name": "windows_dots",
+      "color": [
+        0.0011393414614676678,
+        0.0011393414614676678,
+        0.0011393414614676678,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.9207483816249483,
+      "baseMap": "windows_dots_baseColor.png",
+      "normalMap": "",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "BLEND"
+    },
+    {
+      "name": "brakes",
+      "color": [
+        0.2514993169897174,
+        0.036095527212778415,
+        0.036095527212778415,
+        1.0
+      ],
+      "metallic": 0.047816079223363284,
+      "roughness": 0.4796816777830003,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "brakes_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "invisible_all",
+      "color": [
+        0.003430933929391257,
+        0.003430933929391257,
+        0.003430933929391257,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 1,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "invisible_all_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "number_plate1",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.0,
+      "roughness": 0.9207483816249483,
+      "baseMap": "number_plate1_baseColor.png",
+      "normalMap": "",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "monitor",
+      "color": [
+        0.020670499595662924,
+        0.020670499595662924,
+        0.020670499595662924,
+        0.21204665895730976
+      ],
+      "metallic": 0.0,
+      "roughness": 0.066063921416024,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "BLEND"
+    },
+    {
+      "name": "reflectors",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.38235985275547646,
+      "baseMap": "reflectors_baseColor.png",
+      "normalMap": "reflectors_normal.png",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "red_light_main",
+      "color": [
+        0.0038091417215902566,
+        0.0,
+        0.0013393713459947548,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.9207483816249483,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "",
+      "emissionMap": "red_light_main_emissive.png",
+      "emission": [
+        0.8431176360868473,
+        0.8431176360868473,
+        0.8431176360868473
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "bl_pl__GL_int_ext",
+      "color": [
+        0.003430933929391257,
+        0.003430933929391257,
+        0.003430933929391257,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.10864221986556569,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "chrom_int",
+      "color": [
+        0.256206436112768,
+        0.256206436112768,
+        0.256206436112768,
+        1.0
+      ],
+      "metallic": 1,
+      "roughness": 0.2485423433426312,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "Discs",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.8811342060215361,
+      "baseMap": "Discs_baseColor.png",
+      "normalMap": "",
+      "metalRoughMap": "Discs_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "rim_black",
+      "color": [
+        0.025,
+        0.025,
+        0.025,
+        1.0
+      ],
+      "metallic": 1,
+      "roughness": 0.08431176360868473,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "rim_black_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "rim_chrome",
+      "color": [
+        0.5445723303277964,
+        0.5445723303277964,
+        0.5445723303277964,
+        1.0
+      ],
+      "metallic": 1,
+      "roughness": 0.21204665895730976,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "rim_chrome_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "lights",
+      "color": [
+        0.03135897849164534,
+        0.03135897849164534,
+        0.03135897849164534,
+        0.19988143082886928
+      ],
+      "metallic": 0.0,
+      "roughness": 0.26679018553529193,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "BLEND"
+    },
+    {
+      "name": "pipes_chrom",
+      "color": [
+        0.2832221792965818,
+        0.2832221792965818,
+        0.2832221792965818,
+        1.0
+      ],
+      "metallic": 1,
+      "roughness": 0.23029450114997047,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "pipes_chrom_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "pl_leather_int",
+      "color": [
+        0.01582348200625365,
+        0.01582348200625365,
+        0.01582348200625365,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.5891687309389646,
+      "baseMap": "",
+      "normalMap": "pl_leather_int_normal.png",
+      "metalRoughMap": "pl_leather_int_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "dynamics",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.0,
+      "roughness": 1,
+      "baseMap": "dynamics_baseColor.png",
+      "normalMap": "dynamics_normal.png",
+      "metalRoughMap": "dynamics_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "upholstery",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.0,
+      "roughness": 0.9602081888563992,
+      "baseMap": "upholstery_baseColor.png",
+      "normalMap": "upholstery_normal.png",
+      "metalRoughMap": "upholstery_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "tires",
+      "color": [
+        0.005558492906470164,
+        0.005558492906470164,
+        0.005558492906470164,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.46143383559033957,
+      "baseMap": "",
+      "normalMap": "tires_normal.png",
+      "metalRoughMap": "tires_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "LOGO1",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 1,
+      "roughness": 0.4796816777830003,
+      "baseMap": "LOGO1_baseColor.png",
+      "normalMap": "LOGO1_normal.png",
+      "metalRoughMap": "LOGO1_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "belts",
+      "color": [
+        0.009996826741650706,
+        0.17826282915544267,
+        0.0578104342163543,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 1,
+      "baseMap": "",
+      "normalMap": "belts_normal.png",
+      "metalRoughMap": "belts_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "hedlights_grid",
+      "color": [
+        0.025101596702590673,
+        0.025101596702590673,
+        0.025101596702590673,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.49792951997566104,
+      "baseMap": "",
+      "normalMap": "hedlights_grid_normal.png",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "headlights_plastic_ring",
+      "color": [
+        0.013271399869688262,
+        0.013271399869688262,
+        0.013271399869688262,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.13905529018666687,
+      "baseMap": "",
+      "normalMap": "headlights_plastic_ring_normal.png",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "rug_interior",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.0,
+      "roughness": 1,
+      "baseMap": "rug_interior_baseColor.png",
+      "normalMap": "rug_interior_normal.png",
+      "metalRoughMap": "rug_interior_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "leather_int",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.0,
+      "roughness": 1,
+      "baseMap": "leather_int_baseColor.png",
+      "normalMap": "pl_leather_int_normal.png",
+      "metalRoughMap": "leather_int_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "leather_seam",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.0,
+      "roughness": 1,
+      "baseMap": "leather_int_baseColor.png",
+      "normalMap": "leather_seam_normal.png",
+      "metalRoughMap": "leather_seam_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "leather_perforated",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "metallic": 0.0,
+      "roughness": 1,
+      "baseMap": "leather_int_baseColor.png",
+      "normalMap": "leather_perforated_normal.png",
+      "metalRoughMap": "leather_perforated_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "bl_pl_M_int",
+      "color": [
+        0.004635743647116717,
+        0.004635743647116717,
+        0.004635743647116717,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.649994871581167,
+      "baseMap": "",
+      "normalMap": "",
+      "metalRoughMap": "bl_pl_M_int_metallicRoughness.png",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    },
+    {
+      "name": "interior_grid",
+      "color": [
+        0.014943664743057515,
+        0.014943664743057515,
+        0.014943664743057515,
+        1.0
+      ],
+      "metallic": 0.0,
+      "roughness": 0.1268900620582264,
+      "baseMap": "",
+      "normalMap": "reflectors_normal.png",
+      "metalRoughMap": "",
+      "emissionMap": "",
+      "emission": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE"
+    }
+  ]
+}

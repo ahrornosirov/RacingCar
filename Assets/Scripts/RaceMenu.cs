@@ -9,7 +9,13 @@ using XRUsages = UnityEngine.XR.CommonUsages;
 [DefaultExecutionOrder(100)]
 public sealed class RaceMenu : MonoBehaviour
 {
-    public enum Page { Home, Pause, Controls, Results }
+    public enum Page { Home, Pause, Controls, Results, Garage, Tracks }
+    public QuestHandDriving hands;
+    public Button handModeButton;
+    public RaceTrackSelection tracks;
+    public Button tracksButton, previousTrack, nextTrack;
+    public RaceGarage garage;
+    public Button garageButton, previousCar, nextCar;
     public RaceSession race;
     public RacerCameraRig view;
     public Canvas canvas;
@@ -35,7 +41,7 @@ public sealed class RaceMenu : MonoBehaviour
     void Start()
     {
         race.Finished += ShowResults;
-        play.onClick.AddListener(() => { if (CurrentPage == Page.Pause) Resume(); else StartRace(); });
+        play.onClick.AddListener(() => { if (CurrentPage == Page.Tracks) { tracks.Confirm(); ShowHome(); } else if (CurrentPage == Page.Garage) { garage.Confirm(); ShowHome(); } else if (CurrentPage == Page.Pause) Resume(); else StartRace(); });
         firstPerson.onClick.AddListener(() => SelectCamera(true));
         thirdPerson.onClick.AddListener(() => SelectCamera(false));
         restart.onClick.AddListener(StartRace);
@@ -43,6 +49,21 @@ public sealed class RaceMenu : MonoBehaviour
         mainMenu.onClick.AddListener(ShowHome);
         quit.onClick.AddListener(Quit);
         back.onClick.AddListener(Back);
+        if (garageButton != null)
+        {
+            garageButton.onClick.AddListener(() => { view.SetShowcase(true); Open(Page.Garage); });
+            previousCar.onClick.AddListener(() => BrowseCar(-1));
+            nextCar.onClick.AddListener(() => BrowseCar(1));
+        }
+        if (tracksButton != null)
+        {
+            tracksButton.onClick.AddListener(() => { view.SetShowcase(true); Open(Page.Tracks); });
+            previousTrack.onClick.AddListener(() => BrowseTrack(-1));
+            nextTrack.onClick.AddListener(() => BrowseTrack(1));
+        }
+        if (handModeButton != null) handModeButton.onClick.AddListener(() => {
+            hands.SetHandsEnabled(!hands.HandsEnabled); Refresh();
+        });
         ShowHome();
     }
 
@@ -56,6 +77,11 @@ public sealed class RaceMenu : MonoBehaviour
 
     public void StartRace()
     {
+        if (HandDrivingActive)
+        {
+            if (!hands.Supported) { ShowControls(); subtitle.text = "Select Porsche in Garage, or switch to Controllers."; return; }
+            view.SetView(true);
+        }
         HasStarted = true;
         race.BeginNewRace();
         Close();
@@ -83,7 +109,9 @@ public sealed class RaceMenu : MonoBehaviour
 
     public void SelectCamera(bool cockpit)
     {
+        if (!cockpit && HandDrivingActive && HasStarted) return;
         inputFrame = Time.frameCount;
+        view.SetShowcase(CurrentPage == Page.Garage && !cockpit);
         view.SetView(cockpit);
         placePanel = IsOpen;
         Refresh();
@@ -95,9 +123,14 @@ public sealed class RaceMenu : MonoBehaviour
         Open(Page.Controls);
     }
 
+    void BrowseCar(int direction) { garage.Browse(direction); Refresh(); placePanel = true; }
+    void BrowseTrack(int direction) { tracks.Browse(direction); Refresh(); placePanel = true; }
+
     public void Back()
     {
-        if (CurrentPage == Page.Controls) Open(controlsReturn);
+        if (CurrentPage == Page.Tracks) { tracks.Cancel(); ShowHome(); }
+        else if (CurrentPage == Page.Garage) { garage.Cancel(); ShowHome(); }
+        else if (CurrentPage == Page.Controls) Open(controlsReturn);
         else if (CurrentPage == Page.Pause) Resume();
     }
 
@@ -129,6 +162,23 @@ public sealed class RaceMenu : MonoBehaviour
     {
         bool info = CurrentPage == Page.Controls, paused = CurrentPage == Page.Pause;
         bool results = CurrentPage == Page.Results;
+        bool inGarage = CurrentPage == Page.Garage;
+        bool choosingTrack = CurrentPage == Page.Tracks;
+        bool homeWithTracks = CurrentPage == Page.Home && tracks != null;
+        string trackName = tracks != null ? tracks.Current.displayName.ToUpperInvariant() : "CIRCUIT 01";
+        if (tracksButton != null)
+        {
+            Set(tracksButton, CurrentPage == Page.Home, "SELECT MAP", 386f);
+            Set(previousTrack, choosingTrack, "<  PREVIOUS MAP", 118f);
+            Set(nextTrack, choosingTrack, "NEXT MAP  >", 192f);
+            previousTrack.interactable = nextTrack.interactable = tracks.tracks.Length > 1;
+        }
+        if (garageButton != null)
+        {
+            Set(garageButton, CurrentPage == Page.Home, "GARAGE", homeWithTracks ? 324f : 348f);
+            Set(previousCar, inGarage, "<  PREVIOUS CAR", 118f);
+            Set(nextCar, inGarage, "NEXT CAR  >", 192f);
+        }
         resultDetails.gameObject.SetActive(results);
         if (results)
         {
@@ -142,25 +192,82 @@ public sealed class RaceMenu : MonoBehaviour
         title.text = info ? "HOW TO DRIVE" : paused ? "PAUSED" : "READY TO RACE?";
         if (results) title.text = "RACE COMPLETE";
         subtitle.text = info ? "Desktop and Quest controls" : paused ? "Take a breath. Your lap is waiting." : "Choose your view and take the starting line.";
-        if (results) subtitle.text = $"CIRCUIT 01  /  {race.LapTarget} LAPS FINISHED";
+        if (results) subtitle.text = $"{trackName}  /  {race.LapTarget} LAPS FINISHED";
         cameraLabel.text = "CAMERA  /  " + (view.cockpit ? "FIRST PERSON" : "THIRD PERSON");
         cameraLabel.gameObject.SetActive(!info && !results);
         Set(play, !info, results ? "RACE AGAIN" : paused ? "RESUME RACE" : "START RACE", results ? 500f : 118f);
         Set(firstPerson, !info && !results, "FIRST PERSON" + (view.cockpit ? "   /   SELECTED" : ""), 200f);
-        Set(thirdPerson, !info && !results, "THIRD PERSON" + (!view.cockpit ? "   /   SELECTED" : ""), 274f);
+        Set(thirdPerson, !info && !results, "THIRD PERSON" + (!view.cockpit ? "   /   SELECTED" : ""), homeWithTracks ? 262f : 274f);
         Set(restart, paused, "RESTART RACE", 348f);
-        Set(controls, !info && !results, "CONTROLS", paused ? 422f : 348f);
+        Set(controls, !info && !results, "CONTROLS", homeWithTracks ? 448f : 422f);
         Set(mainMenu, paused || results, "MAIN MENU", results ? 580f : 496f);
-        Set(quit, !info && !paused && !results, "QUIT GAME", 422f);
+        Set(quit, !info && !paused && !results, "QUIT GAME", homeWithTracks ? 510f : 496f);
         Set(back, info, "BACK", 580f);
         summary.gameObject.SetActive(!info && !results);
-        summary.rectTransform.anchoredPosition = new Vector2(0f, paused ? -602f : -540f);
-        summary.text = paused ? $"LAP {race.LapNumber}/{race.LapTarget}   /   {RaceDashboard.FormatTime(race.LapTime)}\nRACE   {RaceDashboard.FormatTime(race.RaceTime)}" : $"CIRCUIT 01  /  {race.LapTarget} LAPS\nBEST LAP   {RaceDashboard.FormatTime(race.BestLap)}\nBEST RACE   {RaceDashboard.FormatTime(race.BestRace)}";
+        summary.rectTransform.anchoredPosition = new Vector2(0f, paused ? -602f : -580f);
+        summary.text = paused ? $"LAP {race.LapNumber}/{race.LapTarget}   /   {RaceDashboard.FormatTime(race.LapTime)}\nRACE   {RaceDashboard.FormatTime(race.RaceTime)}" : $"{trackName}  /  {race.LapTarget} LAPS\nBEST LAP   {RaceDashboard.FormatTime(race.BestLap)}\nBEST RACE   {RaceDashboard.FormatTime(race.BestRace)}";
         help.gameObject.SetActive(info);
         help.text = "DESKTOP\nW / Up: accelerate   S / Down: brake\nA / D: steer   Q: reverse   Space: handbrake\nC: camera   P / Esc: pause   R: reset lap\nRight mouse: look / orbit   Home: recenter\nPage Up / Down: cockpit seat height\n\nQUEST\nRight trigger: accelerate   Left trigger: brake\nLeft stick: steer   Pull back: reverse\nY: camera   X: pause   B: reset lap\nA: recenter while racing\n\nMENU\nMouse or arrows + Enter on desktop\nLeft stick up/down + A on Quest; B goes back";
         footer.text = info ? "Car Concept: Eric Chadwick / Darmstadt Graphics Group GmbH\nCC BY 4.0 - creativecommons.org/licenses/by/4.0" : "Mouse / arrows + Enter   |   Quest: left stick + A\nC / Y changes the camera. P / X pauses the race.";
+        if (inGarage)
+        {
+            var vehicle = garage.Current;
+            title.text = "GARAGE";
+            subtitle.text = $"{garage.PreviewIndex + 1}/{garage.vehicles.Length}  /  {vehicle.displayName}";
+            cameraLabel.gameObject.SetActive(false);
+            Set(play, true, "USE THIS CAR", 266f);
+            Set(firstPerson, true, "COCKPIT PREVIEW", 462f);
+            Set(thirdPerson, true, "EXTERIOR PREVIEW", 536f);
+            Set(back, true, "BACK", 610f);
+            controls.gameObject.SetActive(false); quit.gameObject.SetActive(false);
+            summary.rectTransform.anchoredPosition = new Vector2(0, -344f);
+            summary.text = $"LIMIT {vehicle.topSpeedKph:0} KM/H   /   {vehicle.drivetrain.ToString().ToUpper()} DRIVE\n{vehicle.mass:0} KG   /   {vehicle.brakingLabel}\n{vehicle.accelerationLabel}\n{vehicle.description}";
+            footer.text = vehicle.credit;
+        }
+        else if (CurrentPage == Page.Home && garage != null)
+            subtitle.text = garage.Current.displayName;
+        if (choosingTrack)
+        {
+            title.text = "SELECT MAP";
+            subtitle.text = $"{tracks.PreviewIndex + 1}/{tracks.tracks.Length}  /  {tracks.Current.displayName}";
+            cameraLabel.gameObject.SetActive(false);
+            Set(play, true, "USE THIS MAP", 266f);
+            Set(back, true, "BACK", 610f);
+            firstPerson.gameObject.SetActive(false); thirdPerson.gameObject.SetActive(false);
+            controls.gameObject.SetActive(false); quit.gameObject.SetActive(false);
+            summary.rectTransform.anchoredPosition = new Vector2(0, -344f);
+            summary.text = tracks.Current.description + $"\n{race.checkpointCount} CHECKPOINTS  /  {race.LapTarget} LAPS";
+            footer.text = tracks.Current.credit;
+        }
+        foreach (var button in new[] { play, firstPerson, thirdPerson, garageButton, tracksButton, controls, quit })
+            if (button != null)
+            {
+                var rect = (RectTransform)button.transform;
+                rect.sizeDelta = new Vector2(rect.sizeDelta.x, homeWithTracks ? 54f : 64f);
+            }
+        var series = desktopBrand.transform.Find("Series");
+        if (series != null) series.GetComponent<TMP_Text>().text = "QUEST RACING  /  " + trackName;
+        if (handModeButton != null)
+        {
+            Set(handModeButton, info, hands.HandsEnabled ? "INPUT: HANDS / SWITCH TO CONTROLLERS" : "INPUT: CONTROLLERS / SWITCH TO HANDS", 530f);
+            if (info)
+            {
+                help.rectTransform.sizeDelta = new Vector2(540, 390);
+                Set(back, true, "BACK", 610f);
+                if (hands.HandsEnabled)
+                    help.text = "HAND STEERING / PORSCHE / FIRST PERSON\n\nOpen hands near the wheel, then curl your middle\nand ring fingers around the rim. Turn either hand\nor both hands to steer. Keep thumb + index free.\n\nRIGHT thumb-index pinch: accelerate\nLEFT thumb-index pinch: brake (overrides gas)\nRelease both grips or lose tracking: automatic brake\nRelease both pinches after a pause or tracking loss.\n\nDashboard: D / R, Recenter, Pause\nStop before changing gear or recentering.\nTest limits: 60 km/h forward, 12 km/h reverse.\n\nMENUS: point an open hand, then pinch to select.\nStart with hands open; use a well-lit play area.";
+            }
+            if (CurrentPage == Page.Home || paused)
+                controls.GetComponentInChildren<TMP_Text>().text = "CONTROLS / " + (hands.HandsEnabled ? "HANDS" : "CONTROLLERS");
+            if (HandDrivingActive && hands.Supported && (CurrentPage == Page.Home || paused)) thirdPerson.interactable = false;
+            else thirdPerson.interactable = true;
+            if (!info && !inGarage && !choosingTrack && !results)
+                footer.text = "Hands: point, then thumb-index pinch to select\n" + (hands.HandsEnabled ? "Porsche / first person / gesture pedals" : "Controllers: left stick + A / B to go back");
+        }
         if (results) footer.text = race.NewRaceRecord ? "NEW RACE RECORD!  /  SAVED ON THIS DEVICE" : race.NewLapRecord ? "NEW LAP RECORD!  /  SAVED ON THIS DEVICE" : "PERSONAL BESTS SAVED ON THIS DEVICE";
     }
+
+    bool HandDrivingActive => XRSettings.isDeviceActive && hands != null && hands.HandsEnabled;
 
     static void Set(Button button, bool active, string label, float y)
     {
@@ -257,9 +364,9 @@ public sealed class RaceMenu : MonoBehaviour
 
     void Navigate(int step)
     {
-        var buttons = new[] { play, firstPerson, thirdPerson, restart, controls, mainMenu, quit, back };
+        var buttons = new[] { previousTrack, nextTrack, previousCar, nextCar, play, firstPerson, thirdPerson, garageButton, tracksButton, restart, controls, handModeButton, mainMenu, quit, back };
         var active = new System.Collections.Generic.List<Button>();
-        foreach (var button in buttons) if (button.gameObject.activeSelf && button.IsInteractable()) active.Add(button);
+        foreach (var button in buttons) if (button != null && button.gameObject.activeSelf && button.IsInteractable()) active.Add(button);
         if (active.Count == 0 || EventSystem.current == null) return;
         int index = active.FindIndex(b => b.gameObject == EventSystem.current.currentSelectedGameObject);
         index = (index + step + active.Count) % active.Count;

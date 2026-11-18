@@ -130,6 +130,7 @@ public sealed class RaceSession : MonoBehaviour
         CountdownRemaining = goRemaining = 0f;
         ClearInput();
         car.ResetTo(startPosition, Quaternion.Euler(startEuler));
+        car.PlaceParkedPreview();
         SetPaused(true);
     }
 

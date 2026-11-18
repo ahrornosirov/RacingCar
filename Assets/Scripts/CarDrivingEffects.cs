@@ -62,7 +62,7 @@ public sealed class CarDrivingEffects : MonoBehaviour
                 marking[i] = false;
                 continue;
             }
-            bool asphalt = hit.collider.name == "Grand Prix Circuit" || hit.collider.name.StartsWith("Curb");
+            bool asphalt = hit.collider.TryGetComponent<RoadSurface>(out _) || hit.collider.name == "Grand Prix Circuit" || hit.collider.name.StartsWith("Curb");
             float slip = Mathf.Max(Mathf.Abs(hit.sidewaysSlip), Mathf.Abs(hit.forwardSlip));
             Vector3 position = hit.point + hit.normal * 0.015f;
             if (!asphalt)

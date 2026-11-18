@@ -1,0 +1,7 @@
+2014 Toyota Corolla E180 EU (with interior)
+Author: Armored Wave
+Source: https://sketchfab.com/3d-models/2014-toyota-corolla-e180-eu-with-interior-36f95efb0585464cae43a25a3b3392e8
+License: Creative Commons Attribution 4.0 International
+https://creativecommons.org/licenses/by/4.0/
+Adapted for RacingCar: separate wheels and steering pivot, 1K textures, URP materials, omitted plates, live telemetry screen, collision and vehicle configuration.
+See ASSET_CREDITS.md for details and source texture credit.

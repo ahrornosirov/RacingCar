@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03745e623cf4d4a1c9cc6faf9d77b5b2, type: 3}
+  m_Name: Corolla
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleDefinition
+  id: corolla-e180
+  displayName: Toyota Corolla E180
+  description: Predictable steering / road tires
+  accelerationLabel: Gentle acceleration
+  brakingLabel: Progressive brakes
+  credit: '2014 Toyota Corolla: Armored Wave | CC BY 4.0
+
+    Handling values are game tuning'
+  prefab: {fileID: 2990300366898112477, guid: 81bf420bdb38b4a1db39723c51038463, type: 3}
+  cockpitOffset: {x: -0.3591351, y: 0.6549458, z: 0.15599918}
+  chaseOffset: {x: 0, y: 2.2, z: -6.5}
+  cockpitPitch: 5
+  mass: 1280
+  topSpeedKph: 180
+  reverseSpeedKph: 22
+  motorTorque: 550
+  brakeTorque: 2400
+  steerAngle: 30
+  drivetrain: 1
+  centerOfMass: {x: 0, y: -0.3, z: 0.1}
+  grip: 1.05
+  suspensionSpring: 38000
+  suspensionDamper: 4800
+  steeringResponse: 2.8
+  frontBrakeBias: 0.65
+  downforce: 0.5
+  torqueBySpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: -0.6
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0.4
+      inSlope: -0.6
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

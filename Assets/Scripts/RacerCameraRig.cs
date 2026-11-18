@@ -13,6 +13,7 @@ public sealed class RacerCameraRig : MonoBehaviour
     public float desktopRestPitch = 10f;
     public Vector3 chaseOffset = new Vector3(0f, 2.4f, -6.2f);
     public bool showcase;
+    public int RecenterVersion { get; private set; }
     bool wasXR;
     bool snapNext = true;
     float lookYaw, lookPitch, seatHeight, orbitYaw, orbitPitch;
@@ -31,8 +32,11 @@ public sealed class RacerCameraRig : MonoBehaviour
     }
     public void SetShowcase(bool value) { showcase = value; snapNext = true; }
 
+    public void ResetSeat() { seatHeight = 0f; SetView(cockpit); }
+
     public void Recenter()
     {
+        RecenterVersion++;
         headOrigin = raceCamera.transform.localPosition;
         headYaw = raceCamera.transform.localEulerAngles.y;
         lookYaw = 0f;
